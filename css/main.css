@@ -26,6 +26,11 @@ body, html {
 
 .headerForm {
   margin-right: 20px;
+
+}
+
+form {
+  display: inline;
 }
 
 input[name=username], [name=password] {
@@ -33,12 +38,12 @@ input[name=username], [name=password] {
   border-radius: 2px;
   border: 1px solid #333;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 0px;
   outline: none;
   padding-left: 5px;
 }
 
-input[name=login] {
+input[name=login], [name=newuser] {
   height: 30px;
   margin-left: 10px;
   background-color: #333;
@@ -50,6 +55,6 @@ input[name=login] {
   outline: none;
 }
 
-input[name=login]:hover {
+input[name=login]:hover, [name=newuser]:hover {
   background-color: #696969;
 }
