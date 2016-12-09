@@ -8,6 +8,18 @@ body, html {
   background-color: #F5F5F5;
 }
 
+h1 {
+  font-weight: 100;
+  border-bottom: 1px solid #B0C4DE;
+}
+
+.container {
+  width: 50%;
+  height: auto;
+  margin: auto;
+
+}
+
 .header {
   background-color: #fff;
   width: 100%;
@@ -26,7 +38,6 @@ body, html {
 
 .headerForm {
   margin-right: 20px;
-
 }
 
 form {
@@ -41,9 +52,10 @@ input[name=username], [name=password] {
   margin-top: 0px;
   outline: none;
   padding-left: 5px;
+  font-size: 11px;
 }
 
-input[name=login], [name=newuser] {
+input[name=login], [name=newuser], [name=registerButton] {
   height: 30px;
   margin-left: 10px;
   background-color: #333;
@@ -55,6 +67,37 @@ input[name=login], [name=newuser] {
   outline: none;
 }
 
-input[name=login]:hover, [name=newuser]:hover {
-  background-color: #696969;
+input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover {
+  background-color: #B0C4DE;
+}
+
+.inputRegister {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputRegister p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 300;
+  float: right;
+}
+
+input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name=registerPassword] {
+  width: 75%;
+  height: 40px;
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding-left: 5px;
+  font-size: 13px;
+}
+
+[name=registerButton] {
+  float: right;
+  margin-top: 10px;
 }
