@@ -65,6 +65,7 @@ input[name=login], [name=newuser], [name=registerButton] {
   padding-left: 10px;
   padding-right: 10px;
   outline: none;
+  color: #ffc594;
 }
 
 input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover {
