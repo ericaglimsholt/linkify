@@ -56,7 +56,7 @@ function registerUser($connection, $registerFullname, $registerUser, $registerEm
     }
 
     // Hash the given password
-    $password = password_hash($registerPassword, PASSWORD_BCRYPT);
+    $registerPassword = password_hash($registerPassword, PASSWORD_BCRYPT);
 
     // Check if registration succeeded, if not add error message
     //session_start();
