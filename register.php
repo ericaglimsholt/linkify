@@ -2,40 +2,29 @@
 
   <head>
     <?php
+
       require("blocks/head.php");
       require("lib/functions.php");
-
-
     ?>
   </head>
 
   <body>
     <?php
 
+
     require("blocks/header.php");
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-      if ($_POST["registerFullname"] !== "" && $_POST["registerUsername"] !== "" && $_POST["registerEmail"] !== "" && ["registerPassword"] !== "") {
-
-        registerUser($connection, $_POST["registerFullname"], $_POST["registerUsername"], $_POST["registerEmail"], $_POST["registerPassword"]);
-
-      } else {
-
-        session_start();
-      }
-      die();
-    }
+    require("lib/newuser.php");
 
 
-    $error = $_SESSION["error"] ?? "";
-    $message = $_SESSION["message"] ?? "";
+
+
     ?>
+
 
 
     <div class="container">
 
-      <form class="registerForm" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+      <form class="registerForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <h1>Register a new user</h1>
 
         <div class="inputRegister">
