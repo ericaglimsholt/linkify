@@ -5,6 +5,7 @@
       require("blocks/head.php");
       require("lib/functions.php");
 
+
     ?>
   </head>
 
@@ -18,6 +19,7 @@
       if ($_POST["registerFullname"] !== "" && $_POST["registerUsername"] !== "" && $_POST["registerEmail"] !== "" && ["registerPassword"] !== "") {
 
         registerUser($connection, $_POST["registerFullname"], $_POST["registerUsername"], $_POST["registerEmail"], $_POST["registerPassword"]);
+
       } else {
 
         session_start();
@@ -25,15 +27,15 @@
       die();
     }
 
+
+    $error = $_SESSION["error"] ?? "";
+    $message = $_SESSION["message"] ?? "";
     ?>
 
-    <h4 style="color:red; font-weight:bold;"><?= $error; ?></h4>
-
-      <h4 style="color:limegreen; font-weight:bold;"><?= $message; ?></h4>
 
     <div class="container">
 
-      <form class="registerForm" action="register.php" method="post">
+      <form class="registerForm" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
         <h1>Register a new user</h1>
 
         <div class="inputRegister">
@@ -56,7 +58,7 @@
           <input type="password" name="registerPassword" value="" placeholder="Password1234">
         </div>
 
-        <input type="button" name="registerButton" value="Register to Linkify">
+        <input type="submit" name="registerButton" value="Register to Linkify">
 
 
       </form>

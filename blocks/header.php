@@ -14,9 +14,9 @@
       <input type="submit" name="login" value="Log in">
     </form>
 
-    <form class="registeruserform" action="register.php" method="post">
-      <input type="submit" name="newuser" value="New user">
-    </form>
+      <a href="../register.php">
+      <input type="button" name="newuser" value="New user">
+      </a>
 
     </div>
 
