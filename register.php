@@ -1,19 +1,18 @@
-<?php require __DIR__.'/autoload.php'; ?>
+<?php
+
+    require __DIR__.'/autoload.php';
+    require __DIR__.'/blocks/head.php';
+    require __DIR__.'/lib/newuser.php';
+
+?>
 
 <html>
-  <head>
 
-    <?php
-    require("blocks/head.php");
-    require("lib/newuser.php");
-    ?>
-
-  </head>
   <body>
 
     <?php require("blocks/header.php"); ?>
 
-<!--    REGISTER FORM   -->
+    <!--    REGISTER FORM   -->
 
     <div class="container">
 
@@ -60,6 +59,5 @@
     </div>
 
   </body>
-
 
 </html>

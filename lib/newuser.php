@@ -2,6 +2,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    // Check if the passwords matches
     if ($_POST['registerPassword']!= $_POST['registerPassword2'])
     {
         $_SESSION["error"] = "Oops! Password did not match! Try again.";
@@ -12,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         registerUser($connection, $_POST["registerFullname"], $_POST["registerUsername"], $_POST["registerEmail"], $_POST["registerPassword"]);
 
-    } else {
     }
 }
 

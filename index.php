@@ -1,14 +1,14 @@
-<?php require __DIR__.'/autoload.php'; ?>
+<?php
+    require __DIR__.'/autoload.php';
+    require __DIR__.'/blocks/head.php';
+?>
+
 <html>
 
-  <head>
-
-    <?php require("blocks/head.php"); ?>
-
-  </head>
-
   <body>
-    <?php require("blocks/header.php"); ?>
+
+  <?php require __DIR__.'/blocks/header.php'; ?>
+
   </body>
 
 </html>

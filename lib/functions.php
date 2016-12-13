@@ -66,3 +66,22 @@ function registerUser($connection, $registerFullname, $registerUser, $registerEm
         return true;
     }
 }
+
+
+// Authenticates a user and logs him/her into the platform.
+function loginUser($connection, $username, $password)
+{
+    // Escapes the username and password given by the user.
+    list($username, $password) = escapeData($connection, [$username, $password]);
+
+    // Retrieve the user based on the email or username given by the user.
+    $user = dbGet($connection, "SELECT * FROM users WHERE email = '$username' OR username = '$username'", true);
+    if ($user) {
+        // User matched with email or username, validate password
+        if (password_verify($password, $user["password"])) {
+            return $user["id"];
+        }
+    }
+    $_SESSION["error"] = "Invalid username, email or password.";
+    return false;
+}
