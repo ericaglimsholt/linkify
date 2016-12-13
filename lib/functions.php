@@ -43,14 +43,12 @@ function registerUser($connection, $registerFullname, $registerUser, $registerEm
 
     // Validate the given
     if (!validateEmail($connection, $registerEmail)) {
-        //session_start();
         $_SESSION["error"] = "The email you provided was invalid or already in use.";
         return false;
     }
 
     // Validate the given username
     if (!validateUsername($connection, $registerUser)) {
-      //  session_start();
         $_SESSION["error"] = "The username you provided is already in use.";
         return false;
     }
@@ -64,7 +62,7 @@ function registerUser($connection, $registerFullname, $registerUser, $registerEm
         $_SESSION["error"] = "Registration failed. Please try again later.";
         return false;
     } else {
-        $_SESSION["message"] = "Success! You are now registered and can log into Tweetbook.";
+        $_SESSION["message"] = "Success! You are now registered and can log into Linkify.";
         return true;
     }
 }

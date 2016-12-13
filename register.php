@@ -1,4 +1,5 @@
 <?php require __DIR__.'/autoload.php'; ?>
+
 <html>
   <head>
 
@@ -9,6 +10,7 @@
 
   </head>
   <body>
+
     <?php require("blocks/header.php"); ?>
 
 <!--    REGISTER FORM   -->
@@ -39,6 +41,13 @@
         </div>
 
         <input type="submit" name="registerButton" value="Register to Linkify">
+
+          <?php
+
+          require("blocks/error.php");
+          require("blocks/message.php");
+
+          ?>
 
 
       </form>
