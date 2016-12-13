@@ -18,7 +18,7 @@
     <div class="container">
 
       <form class="registerForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <h1>Register a new user</h1>
+        <h1>Register a new users</h1>
 
         <div class="inputRegister">
           <p>Full name:</p>
