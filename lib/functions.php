@@ -1,6 +1,6 @@
 <?php
 
-require("database.php");
+
 
 // Validates a given email, first to be of a valid format and then against the database.
 function validateEmail($connection, $registerEmail)

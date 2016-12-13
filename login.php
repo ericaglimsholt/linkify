@@ -1,7 +1,10 @@
 <html>
 
   <head>
-    <?php require("blocks/head.php"); ?>
+
+    <?php
+    require __DIR__.'/autoload.php';
+    require("blocks/head.php"); ?>
   </head>
 
   <body>

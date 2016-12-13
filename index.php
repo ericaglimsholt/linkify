@@ -3,9 +3,9 @@
   <head>
 
     <?php
-
+    require __DIR__.'/autoload.php';
     require("blocks/head.php");
-    require("lib/functions.php");
+
 
     ?>
 
