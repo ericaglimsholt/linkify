@@ -18,7 +18,7 @@
     <div class="container">
 
       <form class="registerForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <h1>Register a new users</h1>
+        <h1>Register a new user</h1>
 
         <div class="inputRegister">
           <p>Full name:</p>
@@ -39,6 +39,11 @@
           <p>Password:</p>
           <input type="password" name="registerPassword" value="" placeholder="Password1234">
         </div>
+
+          <div class="inputRegister">
+              <p>Re-enter password:</p>
+              <input type="password" name="registerPassword2" value="" placeholder="Password1234">
+          </div>
 
         <input type="submit" name="registerButton" value="Register to Linkify">
 

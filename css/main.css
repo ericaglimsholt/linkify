@@ -87,7 +87,7 @@ input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover {
   float: right;
 }
 
-input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name=registerPassword] {
+input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name=registerPassword],[name=registerPassword2]  {
   width: 75%;
   height: 40px;
   border-radius: 2px;
