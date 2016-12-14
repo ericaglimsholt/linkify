@@ -2,6 +2,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+
     // Check if the passwords matches
     if ($_POST['registerPassword']!= $_POST['registerPassword2'])
     {

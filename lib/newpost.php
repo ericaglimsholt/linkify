@@ -1,5 +1,8 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["linkButton"])) {
+
+
 
     $action = $_POST["action"];
 
@@ -22,4 +25,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["message"] = "Success! You have now shared a new link.";
     return true;
 
+}
 }
