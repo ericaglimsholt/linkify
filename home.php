@@ -11,13 +11,18 @@
 
     <?php
         require __DIR__.'/blocks/header.php';
-        require __DIR__.'/blocks/message.php';
-        require __DIR__.'/blocks/error.php';
     ?>
 
     <?php if(isset($_SESSION["login"]["uid"])):  ?>
 
     <div class="container">
+
+        <?php
+
+        require __DIR__.'/blocks/message.php';
+        require __DIR__.'/blocks/error.php';
+
+        ?>
 
         <h1>Share a new link</h1>
 
