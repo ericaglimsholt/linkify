@@ -55,7 +55,7 @@ input[name=username], [name=password] {
   font-size: 11px;
 }
 
-input[name=login], [name=newuser], [name=registerButton] {
+input[name=login], [name=newuser], [name=registerButton], [name=linkButton] {
   height: 30px;
   margin-left: 10px;
   background-color: #333;
@@ -67,7 +67,7 @@ input[name=login], [name=newuser], [name=registerButton] {
   outline: none;
 }
 
-input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover {
+input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover, [name=linkButton]:hover {
   background-color: #B0C4DE;
 }
 
@@ -87,7 +87,7 @@ input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover {
   float: right;
 }
 
-input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name=registerPassword],[name=registerPassword2]  {
+input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name=registerPassword],[name=registerPassword2], [name=newSubject], [name=newLink]  {
   width: 75%;
   height: 40px;
   border-radius: 2px;
@@ -97,7 +97,7 @@ input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name
   font-size: 13px;
 }
 
-[name=registerButton] {
+[name=registerButton], [name=linkButton] {
   float: right;
   margin-top: 10px;
 }

@@ -8,8 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Both username and password is included, attempt to login the user
         if ($uid = loginUser($connection, $_POST["username"], $_POST["password"])) {
 
-            $_SESSION["message"] = "Inloggad";
-
             $_SESSION["login"] = [
                 "uid" => $uid
             ];

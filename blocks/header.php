@@ -28,9 +28,8 @@
             </a>
         </div>
 
+
+
     <?php endif; ?>
-
-
-
 
 </div>
