@@ -18,6 +18,11 @@
         </div>
 
         <div class="inputRegister">
+            <p>Description:</p>
+            <input type="text" name="newDescription" value="">
+        </div>
+
+        <div class="inputRegister">
             <p>Link:</p>
             <input type="url" name="newLink" value="">
         </div>

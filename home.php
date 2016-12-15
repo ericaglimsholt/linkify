@@ -19,6 +19,20 @@
 
     <?php endif; ?>
 
+    <?php
+
+    $posts = dbGet($connection, "SELECT * FROM posts ORDER BY published DESC");
+
+    foreach ($posts as $post) {
+        require __DIR__.'/blocks/new.php';
+    }
+
+    ?>
+
+
+
+
+
     </body>
 
 </html>

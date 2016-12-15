@@ -1,6 +1,6 @@
 <div class="header">
 
-  <a href="index.php">
+  <a href="home.php">
     <img src="img/logo-linkify.png" alt="Linkify Logotype" />
   </a>
 

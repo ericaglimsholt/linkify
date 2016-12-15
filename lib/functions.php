@@ -83,3 +83,4 @@ function loginUser($connection, $username, $password)
     $_SESSION["error"] = "Invalid username, email or password.";
     return false;
 }
+
