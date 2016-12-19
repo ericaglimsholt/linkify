@@ -10,16 +10,12 @@
     <body>
 
     <?php
-        require __DIR__.'/blocks/header.php';
-    ?>
 
-    <?php if(isset($_SESSION["login"]["uid"])):  ?>
+    require __DIR__.'/blocks/header.php';
 
-    <?php require __DIR__.'/blocks/writepost.php';?>
-
-    <?php endif; ?>
-
-    <?php
+    if(isset($_SESSION["login"]["uid"])) {
+        require __DIR__.'/blocks/writepost.php';
+    }
 
     $posts = dbGet($connection, "SELECT * FROM posts ORDER BY published DESC");
 
