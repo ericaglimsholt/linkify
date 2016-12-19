@@ -4,6 +4,8 @@
     <img src="img/logo-linkify.png" alt="Linkify Logotype" />
   </a>
 
+<!--    If the user are logged in-->
+
     <?php if (!isset($_SESSION["login"]["uid"])): ?>
 
       <div class="headerForm">
@@ -21,6 +23,8 @@
       </div>
 
     <?php else: ?>
+
+        <!--    If the user are not logged in-->
 
         <div class="headerForm">
             <a href="blocks/logout.php">

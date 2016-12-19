@@ -4,9 +4,14 @@
 function validateEmail($connection, $registerEmail)
 {
     $valid = true;
+
+    // Check if the email is validate
     if (!filter_var($registerEmail, FILTER_VALIDATE_EMAIL)) {
         $valid = false;
+
     } else {
+
+        // Register the email to database
         if (dbGet($connection, "SELECT id FROM users WHERE email = '$registerEmail'", true)) {
             $valid = false;
         }

@@ -10,7 +10,6 @@
 
   <?php require __DIR__.'/blocks/header.php'; ?>
 
-
   </body>
 
 </html>
