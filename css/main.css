@@ -1,5 +1,9 @@
 * {
   font-family: 'Open Sans', sans-serif;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
 }
 
 body, html {
@@ -12,6 +16,37 @@ h1 {
   font-weight: 100;
   border-bottom: 1px solid #B0C4DE;
 }
+
+h2{
+  font-weight: 100;
+  color: #B0C4DE;
+  font-size: 18px;
+  margin: 0;
+}
+
+h2:hover {
+  color: #000;
+}
+
+h6 {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: gainsboro;
+}
+
+h6 a {
+  color: gainsboro;
+}
+
+h6 a:hover {
+  color: #B0C4DE;
+}
+
+a {
+  text-decoration: none;
+}
+
 
 .container {
   width: 50%;
@@ -102,4 +137,19 @@ input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name
   margin-top: 10px;
 }
 
+.post {
+  background-color: #fff;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.post p {
+  font-size: 12px;
+  margin: 0;
+  margin-top: 4px;
+}
 
