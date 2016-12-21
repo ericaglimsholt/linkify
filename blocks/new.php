@@ -13,9 +13,7 @@
 </div>
 
 <div class="container">
-<div class="comments">
-    <img src="../img/erica.jpg" alt="Avatar">
-    <input name="writeComment" type="text" placeholder="Write you comment">
-    <input type="submit" name="commentButton" value="Comment">
-</div>
+
+    <?php  require __DIR__.'/comment.php'; ?>
+
 </div>
