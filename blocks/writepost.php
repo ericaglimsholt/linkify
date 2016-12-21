@@ -7,6 +7,8 @@
 
     ?>
 
+    <div class="newPost">
+
     <h1>Share a new link</h1>
 
     <form name="registerPost" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -30,4 +32,5 @@
         <input type="submit" name="linkButton" value="Share link">
     </form>
 
+    </div>
 </div>
