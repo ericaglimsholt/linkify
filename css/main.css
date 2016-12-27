@@ -163,7 +163,7 @@ input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name
   margin: 0;
   height: 35px;
 
-  display: flex;
+  display: none;
   justify-content: space-between;
 }
 
@@ -183,7 +183,7 @@ input[name=writeComment] {
   margin-left: 5px;
 }
 
-input[name=commentButton] {
+input[name=commentButton], input[name=commentDeleteButton] {
   float: right;
   height: 25px;
   margin-left: 5px;
@@ -196,7 +196,6 @@ input[name=commentButton] {
   outline: none;
 }
 
-input[name=commentButton]:hover {
+input[name=commentButton]:hover, input[name=commentDeleteButton]:hover {
   background-color: #ddd;
 }
-
