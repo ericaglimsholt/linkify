@@ -199,3 +199,8 @@ input[name=commentButton], input[name=commentDeleteButton] {
 input[name=commentButton]:hover, input[name=commentDeleteButton]:hover {
   background-color: #ddd;
 }
+
+
+.commentBut {
+  display: inline;
+}
