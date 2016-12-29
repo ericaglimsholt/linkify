@@ -89,7 +89,7 @@ input[name=username], [name=password] {
   font-size: 11px;
 }
 
-input[name=login], [name=newuser], [name=registerButton], [name=linkButton] {
+input[name=login], [name=newuser], [name=registerButton], [name=linkButton], [name=settings] {
   height: 30px;
   margin-left: 10px;
   background-color: #333;
@@ -102,7 +102,7 @@ input[name=login], [name=newuser], [name=registerButton], [name=linkButton] {
 }
 
 
-input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover, [name=linkButton]:hover {
+input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover, [name=linkButton]:hover, [name=settings]:hover {
   background-color: #B0C4DE;
 }
 

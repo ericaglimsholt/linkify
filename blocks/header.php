@@ -27,9 +27,15 @@
         <!--    If the user are not logged in-->
 
         <div class="headerForm">
-            <a href="blocks/logout.php">
+          
+          <a href="blocks/settings.php">
+            <input type="submit" name="settings" value="Settings">
+          </a>
+
+          <a href="blocks/logout.php">
             <input type="submit" name="login" value="Log out">
-            </a>
+          </a>
+
         </div>
 
 
