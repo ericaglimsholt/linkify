@@ -27,8 +27,8 @@
         <!--    If the user are not logged in-->
 
         <div class="headerForm">
-          
-          <a href="blocks/settings.php">
+
+          <a href="/../settings.php">
             <input type="submit" name="settings" value="Settings">
           </a>
 
