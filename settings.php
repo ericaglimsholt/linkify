@@ -14,7 +14,6 @@
 
     }
 
-
 ?>
 
 <html>
@@ -32,7 +31,8 @@
     <h1>Your settings</h1>
 
     <h3>Upload profile avatar</h3>
-    <input type="text" name="settingAvatar" value="">
+    <input type="text" name="settingAvatar" value=""></br>
+    <input type="file" name="settingPicture" accept="image/png, image/jpeg">
 
     <h3>Edit information</h3>
     <input type="text" name="settingInformation" value="" placeholder="Looks like you don't have any information saved">
@@ -41,12 +41,16 @@
     <input type="email" name="settingEmail" value="<?= $post["email"]; ?>">
 
     <h3>Edit password</h3>
-    <input type="password" name="settingPassword1" value="<?= $post["password"]; ?>">
+    <input type="password" name="settingPassword1" value="" placeholder="Write your new password here">
+    <input type="password" name="settingPassword2" value="" placeholder="Re-enter your new password here">
 
     <h3>Enter you password for save changes</h3>
-    <input type="password" name="settingPassword1" value="">
+    <div class="save">
+      <input type="password" name="settingPassword" value="">
+      <input type="submit" name="settingButton" value="Save changes">
+    </div>
 
-</div>
+    </div>
     </body>
 
 </html>

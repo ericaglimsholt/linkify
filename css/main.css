@@ -33,6 +33,7 @@ h3{
   color: #B0C4DE;
   font-size: 18px;
   margin: 0;
+  margin-bottom: 5px;
 }
 
 h6 {
@@ -96,7 +97,7 @@ input[name=username], [name=password] {
   font-size: 11px;
 }
 
-input[name=login], [name=newuser], [name=registerButton], [name=linkButton], [name=settings] {
+input[name=login], [name=newuser], [name=registerButton], [name=linkButton], [name=settings], [name=settingButton] {
   height: 30px;
   margin-left: 10px;
   background-color: #333;
@@ -109,7 +110,7 @@ input[name=login], [name=newuser], [name=registerButton], [name=linkButton], [na
 }
 
 
-input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover, [name=linkButton]:hover, [name=settings]:hover {
+input[name=login]:hover, [name=newuser]:hover, [name=registerButton]:hover, [name=linkButton]:hover, [name=settings]:hover, [name=settingButton]:hover {
   background-color: #B0C4DE;
 }
 
@@ -139,12 +140,21 @@ input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name
   font-size: 13px;
 }
 
-[name=registerButton], [name=linkButton] {
+[name=registerButton], [name=linkButton],  {
   float: right;
   margin-top: 10px;
 }
 
-input[name=settingEmail], [name=settingPassword1], [name=settingInformation] {
+[name=settingButton] {
+  float: right;
+  height: 40;
+}
+
+input[name=settingPicture] {
+  margin-bottom: 20px;
+}
+
+input[name=settingEmail], [name=settingPassword2], [name=settingInformation] {
   width: 100%;
   height: 40px;
   border-radius: 2px;
@@ -153,6 +163,17 @@ input[name=settingEmail], [name=settingPassword1], [name=settingInformation] {
   padding-left: 5px;
   font-size: 13px;
   margin-bottom: 20px;
+}
+
+input[name=settingPassword1], [name=settingPassword] {
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding-left: 5px;
+  font-size: 13px;
+  margin-bottom: 10px;
 }
 
 input[name=settingAvatar] {
@@ -232,4 +253,9 @@ input[name=commentButton]:hover, input[name=commentDeleteButton]:hover {
 
 .commentBut {
   display: inline;
+}
+
+.save {
+  display: flex;
+  justify-content: space-between;
 }
