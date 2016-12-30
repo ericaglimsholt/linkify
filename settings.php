@@ -44,7 +44,7 @@
     <input type="password" name="settingPassword1" value="" placeholder="Write your new password here">
     <input type="password" name="settingPassword2" value="" placeholder="Re-enter your new password here">
 
-    <h3>Enter you password for save changes</h3>
+    <h3>Enter your currant password for save changes</h3>
     <div class="save">
       <input type="password" name="settingPassword" value="">
       <input type="submit" name="settingButton" value="Save changes">
