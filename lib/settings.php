@@ -14,6 +14,11 @@ foreach ($posts as $post) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+  if (!validateUserPassword($connection, $_SESSION["login"]["uid"], $_POST["settingPassword"])) {
+        $_SESSION["error"] = "Invalid password.";
+      } else {
+
+
   // Check if the passwords matches
   if ($_POST['settingPassword1']!= $_POST['settingPassword2'])
   {
@@ -43,4 +48,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 
 
+}
 }

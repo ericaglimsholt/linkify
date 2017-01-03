@@ -89,3 +89,8 @@ function loginUser($connection, $username, $password)
     return false;
 }
 
+function validateUserPassword($connection, $uid, $password)
+{
+    $hash = dbGet($connection, "SELECT password FROM users WHERE id = '$uid'", true)["password"];
+    return password_verify($password, $hash);
+}
