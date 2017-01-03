@@ -14,6 +14,18 @@
 
     }
 
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+      $uid = $_SESSION["login"]["uid"];
+      $email = mysqli_real_escape_string($connection, $_POST["settingEmail"]);
+
+      if (!dbPost($connection, "UPDATE users SET email = '$email' WHERE id = '$uid'")) {
+          $_SESSION["error"] = "Something went wrong with the database request.";
+      } else {
+          $_SESSION["message"] = "Your settings has successfully been updated!";
+      }
+    }
+
 ?>
 
 <html>
@@ -30,11 +42,20 @@
 
     <h1>Your settings</h1>
 
+    <?php
+
+    require __DIR__.'/blocks/message.php';
+    require __DIR__.'/blocks/error.php';
+
+    ?>
+
+    <form class="settingForm" action="settings.php" method="post">
+
     <h3>Upload profile avatar</h3>
     <input type="text" name="settingAvatar" value=""></br>
     <input type="file" name="settingPicture" accept="image/png, image/jpeg">
 
-    <h3>Edit information</h3>
+    <h3>Edit bio information</h3>
     <input type="text" name="settingInformation" value="" placeholder="Looks like you don't have any information saved">
 
     <h3>Edit email</h3>
@@ -49,6 +70,8 @@
       <input type="password" name="settingPassword" value="">
       <input type="submit" name="settingButton" value="Save changes">
     </div>
+
+  </form>
 
     </div>
     </body>
