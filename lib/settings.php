@@ -15,6 +15,8 @@ foreach ($posts as $post) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+
+
   $uid = $_SESSION["login"]["uid"];
   $email = mysqli_real_escape_string($connection, $_POST["settingEmail"]);
   $bio = (isset($_POST["settingInformation"])) ? mysqli_real_escape_string($connection, $_POST["settingInformation"]):"";
@@ -41,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
               if (!dbPost($connection, "UPDATE users SET password = '$password' WHERE id = '$uid'")) {
                 $_SESSION["error"] = "Something went wrong with the database request.";
               } else {
-                $_SESSION["message"] = "Your changes has successfully been changed.";
+                $_SESSION["message"] = "Your password has successfully been changed.";
               }
             }
         }
@@ -52,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["error"] = "Something went wrong with the database request.";
             return false;
           } else {
-            $_SESSION["message"] = "Your changes has successfully been updated!";
+            $_SESSION["message"] = "Your email has successfully been updated!";
           }
         }
 
@@ -62,11 +64,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["error"] = "Something went wrong with the database request.";
             return false;
           } else {
-            $_SESSION["message"] = "Your changes information has successfully been updated!";
+            $_SESSION["message"] = "Your info has successfully been updated!";
           }
         }
 
-      }
+        if(!empty($_FILES["avatar"]["name"])) {
+           if (!file_exists(__DIR__."/../img/users/{$post["id"]}")) {
+            mkdir(__DIR__."/../img/users/{$post["id"]}");
+          }
+        }
+
     }
   }
+}
 }
