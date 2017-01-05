@@ -29,8 +29,10 @@
     <form class="settingForm" action="settings.php" method="post">
 
     <h3>Upload profile avatar</h3>
-    <input type="text" name="settingAvatar" value=""></br>
-    <input type="file" name="settingPicture" accept="image/png, image/jpeg">
+    <div class="settingAvatar" value="<?= $post["avatar"]; ?>">
+
+				</div>
+    <input type="file" name="avatar" accept="image/png, image/jpeg">
 
     <h3>Edit bio information</h3>
     <input type="text" name="settingInformation" value="<?= $post["bio"]; ?>" placeholder="Looks like you don't have any information saved">

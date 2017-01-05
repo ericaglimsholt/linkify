@@ -176,7 +176,7 @@ input[name=settingPassword1], [name=settingPassword] {
   margin-bottom: 10px;
 }
 
-input[name=settingAvatar] {
+.settingAvatar {
   width: 160px;
   height: 160px;
   border-radius: 2px;
