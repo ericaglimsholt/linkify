@@ -4,7 +4,7 @@
     <img src="img/logo-linkify.png" alt="Linkify Logotype" />
   </a>
 
-<!--    If the user are logged in-->
+<!--    If the user are not logged in-->
 
     <?php if (!isset($_SESSION["login"]["uid"])): ?>
 
@@ -24,9 +24,13 @@
 
     <?php else: ?>
 
-        <!--    If the user are not logged in-->
+        <!--    If the user are logged in-->
 
         <div class="headerForm">
+
+          <a href="/../profile.php">
+            <input type="submit" name="profile" value="Profile">
+          </a>
 
           <a href="/../settings.php">
             <input type="submit" name="settings" value="Settings">
