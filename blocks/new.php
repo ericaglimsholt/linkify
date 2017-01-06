@@ -1,5 +1,9 @@
 <div class="container">
     <div class="post">
+      <div class="rate">
+        <a href="#"><img src="/../img/upvote.png" alt=""></a>
+        <a href="#"><img src="/../img/downvote.png" alt=""></a>
+      </div>
     <a target="_blank" href="<?= $post["link"]; ?>"> <h2><?= $post["subject"]; ?> </h2></a>
     <p><?= $post["description"]; ?></p>
 

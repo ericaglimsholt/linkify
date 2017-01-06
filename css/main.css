@@ -272,3 +272,22 @@ input[name=commentButton]:hover, input[name=commentDeleteButton]:hover {
     opacity: 1;
   }
 }
+
+.rate {
+  width: 22px;
+  height: 60px;
+  float: left;
+  margin-right: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.rate img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.rate img:hover {
+  opacity: 0.5;
+}
