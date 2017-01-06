@@ -21,6 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $email = mysqli_real_escape_string($connection, $_POST["settingEmail"]);
   $bio = (isset($_POST["settingInformation"])) ? mysqli_real_escape_string($connection, $_POST["settingInformation"]):"";
   $password = password_hash($_POST["settingPassword1"], PASSWORD_BCRYPT);
+  $ext = strtolower(pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION));
+  $name = uniqid() . "." . $ext;
+
 
   if (isset($_POST["settingButton"])) {
 
@@ -71,6 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if(!empty($_FILES["avatar"]["name"])) {
            if (!file_exists(__DIR__."/../img/users/{$post["id"]}")) {
             mkdir(__DIR__."/../img/users/{$post["id"]}");
+            if ($_FILES["avatar"]["error"] === 0) {
+              uploadImage($connection, $_FILES["avatar"], "avatar", $uid);
+            }
           }
         }
 

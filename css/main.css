@@ -97,6 +97,11 @@ input[name=username], [name=password] {
   font-size: 11px;
 }
 
+input[name=registerButton], [name=linkButton],  {
+  float: right;
+  margin-top: 10px;
+}
+
 input[name=login], [name=newuser], [name=registerButton], [name=linkButton], [name=settings], [name=settingButton] {
   height: 30px;
   margin-left: 10px;
@@ -140,12 +145,9 @@ input[name=registerFullname], [name=registerUsername],[name=registerEmail],[name
   font-size: 13px;
 }
 
-[name=registerButton], [name=linkButton],  {
-  float: right;
-  margin-top: 10px;
-}
 
-[name=settingButton] {
+
+input[name=settingButton] {
   float: right;
   height: 40;
 }
@@ -212,9 +214,11 @@ input[name=settingPassword1], [name=settingPassword] {
   padding: 5px;
   margin: 0;
   height: 35px;
+  animation: 0.5s fadeIn;
 
   display: none;
   justify-content: space-between;
+
 }
 
 .comments img {
@@ -258,4 +262,13 @@ input[name=commentButton]:hover, input[name=commentDeleteButton]:hover {
 .save {
   display: flex;
   justify-content: space-between;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
