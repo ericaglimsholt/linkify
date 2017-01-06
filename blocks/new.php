@@ -10,6 +10,8 @@
         <h6>Author: <a href="#"><?= $post["username"]; ?></a> | Published: <?= $post["published"]; ?>
             <?php if (isset($_SESSION["login"]["uid"])): ?>
                 | <div class="commentBut"><a href="#">Comment</a></div>
+                | <div class="editBut"><a href="#">Edit</a></div>
+                | <div class="deleteBut"><a href="#">Delete</a></div>
             <?php endif; ?>
         </h6>
 

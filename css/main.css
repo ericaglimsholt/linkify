@@ -255,7 +255,7 @@ input[name=commentButton]:hover, input[name=commentDeleteButton]:hover {
 }
 
 
-.commentBut {
+.commentBut, .editBut, .deleteBut {
   display: inline;
 }
 
