@@ -38,5 +38,6 @@ $uid = $_SESSION["login"]["uid"];
 </div>
 
 <script src="../js/comment.js"></script>
+<script src="../js/delete.js"></script>
 
 </script>
