@@ -5,8 +5,9 @@ $uid = $_SESSION["login"]["uid"];
 <div class="container">
     <div class="post">
       <div class="rate">
-        <a href="#"><img src="/../img/upvote.png" alt=""></a>
-        <a href="#"><img src="/../img/downvote.png" alt=""></a>
+        <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>
+        <input class="qty" value="0" />
+        <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
       </div>
     <a target="_blank" href="<?= $post["link"]; ?>"> <h2><?= $post["subject"]; ?> </h2></a>
     <p><?= $post["description"]; ?></p>
@@ -29,8 +30,6 @@ $uid = $_SESSION["login"]["uid"];
     </div>
 </div>
 
-
-
 <div class="container">
 
     <?php  require __DIR__.'/comment.php'; ?>
@@ -39,5 +38,6 @@ $uid = $_SESSION["login"]["uid"];
 
 <script src="../js/comment.js"></script>
 <script src="../js/delete.js"></script>
+<script src="../js/vote.js"></script>
 
 </script>
