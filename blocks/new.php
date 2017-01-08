@@ -1,3 +1,7 @@
+<?php
+$uid = $_SESSION["login"]["uid"];
+?>
+
 <div class="container">
     <div class="post">
       <div class="rate">
@@ -8,10 +12,17 @@
     <p><?= $post["description"]; ?></p>
 
         <h6>Author: <a href="#"><?= $post["username"]; ?></a> | Published: <?= $post["published"]; ?>
+
+          <!-- Om användaren är inloggad -->
             <?php if (isset($_SESSION["login"]["uid"])): ?>
                 | <div class="commentBut"><a href="#">Comment</a></div>
+
+                <!-- Om användaren har skrivit länken så syns detta -->
+                 <?php if ($uid == $post["id"]): ?>
                 | <div class="editBut"><a href="#">Edit</a></div>
                 | <div class="deleteBut"><a href="#">Delete</a></div>
+               <?php endif; ?>
+
             <?php endif; ?>
         </h6>
 
