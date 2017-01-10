@@ -1,5 +1,12 @@
 <?php
 
+
+$posts = dbGet($connection, "SELECT * FROM posts");
+
+foreach ($posts as $post) {
+
+}
+
 // When the form is posted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 

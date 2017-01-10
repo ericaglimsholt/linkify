@@ -2,7 +2,7 @@
 const showed = document.querySelectorAll('.commentBut');
 showed.forEach(function(showing)
 {
-    let parent = showing.parentElement.parentElement;
+    const parent = showing.parentElement.parentElement;
     showing.addEventListener("click", function(event){
         parent.querySelector('.comments').style.display='flex';
     event.preventDefault();
@@ -10,10 +10,10 @@ showed.forEach(function(showing)
 });
 
 // Hide the comment field
-let hide = document.querySelectorAll('.del');
+const hide = document.querySelectorAll('.del');
 hide.forEach(function(deleting)
 {
-    let parent = deleting.parentElement.parentElement;
+    const parent = deleting.parentElement.parentElement;
     deleting.addEventListener("click", function(event){
         parent.querySelector(".comments").style.display = "none";
     });
