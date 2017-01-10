@@ -5,6 +5,34 @@ This is a school project called Linkify, which are our own version of a Reddit c
 ## Getting started
 
 ## Features to be added
+- [x] Registration
+    - [x] Password hash
+- [x] Login
+    - [x] Password comparison
+- [ ] Settings
+    - [x] Edit email
+    - [x] New password
+        - [x] Password comparison
+    - [x] Edit information
+    - [ ] Edit profile avatar
+- [x] Post
+    - [x] Post links with description
+    - [x] Include link to the authors profile page
+- [ ] Edit post
+    - [ ] Edit link and description
+    - [ ] Delete post
+- [ ] Voting system
+    - [ ] Up & down vote
+    - [ ] One vote/user
+- [ ] Comments
+- [ ] Feed
+    - [x] Always visible
+    - [x] Comment & creating new post requires inlogged user
+    - [x] Edit & delete require user confirmation for only their posts
+- [ ] Profile
+    - [ ] Overview of all info
+    - [ ] All of the users posts
+
 
 ## Licence
 MIT License
