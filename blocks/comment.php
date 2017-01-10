@@ -3,7 +3,7 @@
     <div class="comments">
         <img src="../img/erica.jpg" alt="Avatar">
 
-
+        <input type="hidden" name="postId" value="<?= $post["id"] ?>">
           <input name="writeComment" type="text" placeholder="Write you comment">
           <input type="submit" name="commentButton" value="✓">
 

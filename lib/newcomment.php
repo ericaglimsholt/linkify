@@ -14,12 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             } else {
 
+            $pid = $post["id"];
             $uid = $_SESSION["login"]["uid"];
             $comment = $_POST["writeComment"];
             $date = date("Y-m-d H:i:s");
 
             // Register the new comment to database
-            dbPost($connection, "INSERT INTO comments (uid, comment, published) VALUES ('$uid', '$comment', '$date')");
+            dbPost($connection, "INSERT INTO comments (uid, pid, comment, published) VALUES ('$uid', '$pid', '$comment', '$date')");
 
         }
     }
