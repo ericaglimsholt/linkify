@@ -1,5 +1,5 @@
 <?php
-$uid = $_SESSION["login"]["uid"];
+//$uid = $_SESSION["login"]["uid"];
 
 ?>
 

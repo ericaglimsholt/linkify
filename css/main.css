@@ -108,6 +108,11 @@ a {
   margin-right: 20px;
 }
 
+footer {
+  height: 100px;
+  width: auto;
+}
+
 form {
   display: inline;
 }
@@ -123,7 +128,7 @@ input[name=username], [name=password] {
   font-size: 11px;
 }
 
-input[name=registerButton], [name=linkButton],  {
+input[name=registerButton], [name=linkButton] {
   float: right;
   margin-top: 10px;
 }

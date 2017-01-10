@@ -33,7 +33,7 @@
     <script src="../js/comment.js"></script>
     <script src="../js/delete.js"></script>
     <script src="../js/vote.js"></script>
-
+<footer></footer>
     </body>
 
 </html>
