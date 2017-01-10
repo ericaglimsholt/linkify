@@ -11,7 +11,7 @@ foreach ($comments as $comment) {
 <div class="showComments">
 
     <img src="../img/erica.jpg" alt="Avatar">
-    <h7><a href="#"> <?= $post["username"] ?></a> commented: <?= $comment["comment"]; ?> </h7>
+    <h7><a href="#"> <?= $comment["uid"] ?></a> commented: <?= $comment["comment"]; ?> </h7>
 </div>
 
 <?php if (isset($_SESSION["login"]["uid"])): ?>
