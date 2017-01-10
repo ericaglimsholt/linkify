@@ -6,6 +6,16 @@
   box-sizing: border-box;
 }
 
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #F5F5F5;
+  margin: 1em 0;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
 body, html {
   width: 100%;
   margin: 0;
@@ -48,6 +58,22 @@ h6 a {
 }
 
 h6 a:hover {
+  color: #B0C4DE;
+}
+
+h7 {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #333333;
+  font-size: .67em;
+}
+
+h7 a {
+  color: #333333;
+}
+
+h7 a:hover {
   color: #B0C4DE;
 }
 
@@ -196,7 +222,7 @@ input[name=settingPassword1], [name=settingPassword] {
   margin-top: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 5px;
+  padding-left: 0;
 }
 
 .post p {
@@ -224,6 +250,24 @@ input[name=settingPassword1], [name=settingPassword] {
 .comments img {
   width: 25px;
   height: 25px;
+}
+
+.showComments {
+  background-color: #fff;
+  padding: 5px;
+  margin: 0;
+  height: 35px;
+
+
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.showComments img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
 }
 
 input[name=writeComment] {

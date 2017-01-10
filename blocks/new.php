@@ -1,5 +1,6 @@
 <?php
 $uid = $_SESSION["login"]["uid"];
+
 ?>
 
 <div class="container">
@@ -12,6 +13,7 @@ $uid = $_SESSION["login"]["uid"];
 
     <a target="_blank" href="<?= $post["link"]; ?>"> <h2><?= $post["subject"]; ?> </h2></a>
     <p><?= $post["description"]; ?></p>
+
 
         <h6>Author: <a href="#"><?= $post["username"]; ?></a> | Published: <?= $post["published"]; ?>
 
