@@ -33,7 +33,7 @@ This is a school project called Linkify, which are our own version of a Reddit c
     - [x] Comment & creating new post requires inlogged user
     - [x] Edit & delete require user confirmation for only their posts
 - [ ] Profile
-    - [ ] Overview of all info
+    - [x] Overview of all info
     - [ ] All of the users posts
 
 

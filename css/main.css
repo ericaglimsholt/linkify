@@ -218,6 +218,7 @@ input[name=settingPassword1], [name=settingPassword] {
   padding-left: 5px;
   font-size: 13px;
   margin-bottom: 20px;
+  float: left;
 }
 
 .post {
@@ -349,4 +350,18 @@ input[class=qty] {
   margin-left: 6px;
   outline: none;
   border: none;
+}
+
+.information {
+  padding-left: 20px;
+  margin: 0;
+  margin-bottom: 100px;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.information p {
+  margin: 5px;
 }

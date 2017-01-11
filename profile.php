@@ -3,11 +3,15 @@ require __DIR__.'/autoload.php';
 require __DIR__.'/blocks/login.php';
 require __DIR__.'/blocks/head.php';
 
-$information = dbGet($connection, "SELECT * FROM users");
+$uid = $_SESSION["login"]["uid"];
+
+$information = dbGet($connection, "SELECT * FROM users, posts WHERE posts.uid = '$uid'");
+
 
 foreach ($information as $info) {
 
 }
+
 
 ?>
 
@@ -33,6 +37,12 @@ require __DIR__.'/blocks/header.php';
             <p>Email: <?= $info["email"] ?></p>
             <p>Bio: <?= $info["bio"] ?></p>
         </div>
+        <h1><?= $info["username"] ?>'s links</h1>
+
+        <?php
+            require("blocks/new2.php");
+        ?>
+
 
     </div>
 
