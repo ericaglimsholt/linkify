@@ -25,7 +25,10 @@ This is a school project called Linkify, which are our own version of a Reddit c
     - [ ] Up & down vote
     - [ ] One vote/user
 - [ ] Comments
-- [ ] Feed
+    - [ ] Always showing next to the post
+    - [x] Link to the author
+    - [x] Show and hide comment field
+- [x] Feed
     - [x] Always visible
     - [x] Comment & creating new post requires inlogged user
     - [x] Edit & delete require user confirmation for only their posts
