@@ -1,12 +1,5 @@
 <?php
 
-
-$posts = dbGet($connection, "SELECT * FROM posts");
-
-foreach ($posts as $post) {
-
-}
-
 // When the form is posted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -21,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             } else {
 
-            $pid = $post["id"];
+            $pid = $_POST["postId"];
             $uid = $_SESSION["login"]["uid"];
             $comment = $_POST["writeComment"];
             $date = date("Y-m-d H:i:s");

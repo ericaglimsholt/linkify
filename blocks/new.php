@@ -1,9 +1,18 @@
 <?php
-
+if (isset($_POST["editpost"])) {
+    $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
+}
 
 ?>
 
 <div class="container">
+
+    <?php
+
+    require("blocks/error.php");
+    require("blocks/message.php");
+
+    ?>
     <div class="post">
       <div class="rate">
         <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>
@@ -23,10 +32,13 @@
 
                 <!-- Om användaren har skrivit länken så syns detta -->
                  <?php if ($_SESSION["login"]["uid"] == $post["id"]): ?>
-                | <div class="editBut"><a href="#">Edit</a></div>
-                | <div class="deleteBut"><a href="#">Delete</a></div>
-               <?php endif; ?>
+                    <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
+                        <input type="submit" name="editPost" value="edit">
+<!--                        |<button class="editPost" name="editPost">Edit</button>-->
+                        |<button class="deletePost"><div class="deleteBut"><a href="#">Delete</a></div></h6></button>
+                    </form>
 
+                 <?php endif; ?>
             <?php endif; ?>
         </h6>
         <?php  require __DIR__.'/comment.php'; ?>
