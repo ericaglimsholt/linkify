@@ -109,11 +109,12 @@ function imageName ($length = 32)
 function uploadImage ($connection, $imageInfo, $type, $uid)
 {
     $name = imageName() . strrchr($imageInfo["name"], ".");
-    if (!move_uploaded_file($imageInfo["tmp_name"], "../img/users/$uid/$name")) {
+
+    if (!move_uploaded_file($imageInfo["tmp_name"], __DIR__."/../img/users/$uid/$name")) {
         $_SESSION["error"] = "There was a problem uploading your image.";
+
     } else {
         if ($type === "avatar") {
-            move_uploaded_file($imageInfo["tmp_name"], "../img/users/$uid/$name");
             dbPost($connection, "UPDATE users SET avatar = '$name' WHERE id = '$uid'");
             $_SESSION["message"] = "Your avatar has successfully been updated!";
         }

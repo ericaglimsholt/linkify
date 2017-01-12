@@ -9,12 +9,12 @@ This is a school project called Linkify, which are our own version of a Reddit c
     - [x] Password hash
 - [x] Login
     - [x] Password comparison
-- [ ] Settings
+- [x] Settings
     - [x] Edit email
     - [x] New password
         - [x] Password comparison
     - [x] Edit information
-    - [ ] Edit profile avatar
+    - [x] Edit profile avatar
 - [x] Post
     - [x] Post links with description
     - [x] Include link to the authors profile page
