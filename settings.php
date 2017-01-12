@@ -31,13 +31,13 @@
     <h3>Upload profile avatar</h3>
     <div class="settingAvatar" value="">
         <?php if ($post["avatar"] !== NULL) {  ?>
-            <img src="/assets/images/users/<?=$post["id"]?>/<?=$post["avatar"]?>" />
+            <img class="settingAvatar" src="/img/users/<?=$post["id"]?>/<?=$post["avatar"]?>" />
         <?php } else { ?>
             <img src="/img/avatar.png" />
         <?php } ?>
     </div>
     <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg">
-
+<br/>
     <h3>Edit bio information</h3>
     <input type="text" name="settingInformation" value="" placeholder="Looks like you don't have any information saved">
 

@@ -31,7 +31,13 @@ require __DIR__.'/blocks/header.php';
 
     <div class="container">
         <h1><?= $info["username"] ?>'s profile</h1>
-        <div class="settingAvatar" value=""></div>
+        <div class="settingAvatar" value="">
+            <?php if ($info["avatar"] !== NULL) {  ?>
+                <img class="settingAvatar" src="img/users/<?=$info["uid"]?>/<?=$info["avatar"]?>" />
+            <?php } else { ?>
+                <img   class="settingAvatar"src="/img/avatar.png" />
+            <?php } ?>
+        </div>
         <div class="information">
             <p>Name: <?= $info["name"] ?></p>
             <p>Email: <?= $info["email"] ?></p>

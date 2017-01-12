@@ -24,7 +24,7 @@ if (isset($_POST["editpost"])) {
     <p><?= $post["description"]; ?></p>
 
 
-        <h6>Author: <a href="#"><?= $post["username"]; ?></a> | Published: <?= $post["published"]; ?>
+        <h6>Author: <a href="../profile.php"><?= $post["username"]; ?></a> | Published: <?= $post["published"]; ?>
 
           <!-- Om användaren är inloggad -->
             <?php if (isset($_SESSION["login"]["uid"])): ?>

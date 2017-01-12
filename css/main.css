@@ -203,23 +203,31 @@ input[name=settingPassword1], [name=settingPassword] {
   height: 40px;
   border-radius: 2px;
   outline: none;
-  border: 1px solid #ddd;
+  border: 1px solid #;
   padding-left: 5px;
   font-size: 13px;
   margin-bottom: 10px;
 }
 
-.settingAvatar {
+div.settingAvatar {
   width: 160px;
   height: 160px;
   border-radius: 2px;
   outline: none;
   border: 1px solid #ddd;
-  padding-left: 5px;
+  padding-left: 0px;
   font-size: 13px;
   margin-bottom: 20px;
   float: left;
 }
+
+img.settingAvatar {
+  width: 160px;
+  height: 160px;
+  float: left;
+}
+
+
 
 .post {
   background-color: #fff;
