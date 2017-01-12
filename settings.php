@@ -34,10 +34,10 @@
     <input type="file" name="avatar" accept="image/png, image/jpeg, image/jpg">
 
     <h3>Edit bio information</h3>
-    <input type="text" name="settingInformation" value="" placeholder="Looks like you don't have any information saved">
+    <input type="text" name="settingInformation" value="<?= $post["bio"]; ?>" placeholder="Looks like you don't have any information saved">
 
     <h3>Edit email</h3>
-    <input type="email" name="settingEmail" value="">
+    <input type="email" name="settingEmail" value="<?= $post["email"]; ?>">
 
     <h3>New password</h3>
     <input type="password" name="settingPassword1" value="" placeholder="Write your new password here">
