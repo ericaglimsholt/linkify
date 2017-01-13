@@ -6,6 +6,13 @@ foreach ($comments as $comment) {
 
 }
 
+$posts = dbGet($connection, "SELECT * FROM posts, users WHERE posts.uid = users.id");
+
+// Shows all the posts
+foreach ($posts as $post) {
+
+}
+
 ?>
 <hr>
 <div class="showComments">
@@ -20,7 +27,11 @@ foreach ($comments as $comment) {
     <div class="comments">
           <img src="../img/erica.jpg" alt="Avatar">
 
-          <input type="hidden" name="postId" value="<?= $comment["pid"] ?>">
+        <?php
+
+        echo "<input name=\"postId\" type=\"hidden\" value=\"" . $post["id"] . "\">";
+        ?>
+<!--          <input type="hidden" name="postId" value="--><?//= echo $post["id"] ?><!--">-->
           <input name="writeComment" type="text" placeholder="Write you comment">
 
           <input type="submit" name="commentButton" value="✓">
