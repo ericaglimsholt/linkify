@@ -3,6 +3,17 @@ if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
 }
 
+$users = dbGet($connection, "SELECT * FROM posts, users WHERE posts.uid = users.id ");
+foreach ($users as $user) {
+
+}
+
+$comments = dbGet($connection, "SELECT * FROM comments, posts WHERE comments.pid = posts.id");
+
+foreach ($comments as $comment) {
+
+}
+
 ?>
 
 <div class="container">
@@ -20,11 +31,11 @@ if (isset($_POST["editpost"])) {
         <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
       </div>
 
-    <a target="_blank" href="<?= $post["link"]; ?>"> <h2><?= $post["subject"]; ?> </h2></a>
+    <a target="_blank" href="<?= $user["link"]; ?>"> <h2><?= $post["subject"]; ?> </h2></a>
     <p><?= $post["description"]; ?></p>
 
 
-        <h6>Author: <a href="../profile.php"><?= $post["username"]; ?></a> | Published: <?= $post["published"]; ?>
+        <h6>Author: <a href="../profile.php"><?= $user["username"]; ?></a> | Published: <?= $user["published"]; ?>
 
           <!-- Om användaren är inloggad -->
             <?php if (isset($_SESSION["login"]["uid"])): ?>
@@ -41,7 +52,41 @@ if (isset($_POST["editpost"])) {
                  <?php endif; ?>
             <?php endif; ?>
         </h6>
-        <?php  require __DIR__.'/comment.php'; ?>
+
+        <?php
+
+
+
+
+
+        ?>
+        <hr>
+        <div class="showComments">
+
+            <img src="../img/erica.jpg" alt="Avatar">
+            <h7><a href="#"> <?= $comment["uid"]; ?></a> commented: <?= $comment["comment"]; ?> </h7>
+        </div>
+
+        <?php if (isset($_SESSION["login"]["uid"])): ?>
+
+            <form name="registerComment" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <div class="comments">
+                    <img src="../img/erica.jpg" alt="Avatar">
+
+                    <?php
+
+                    echo "<input name=\"postId\" type=\"hidden\" value=\"" . $post["id"] . "\">";
+                    ?>
+                    <!--          <input type="hidden" name="postId" value="--><?//= echo $post["id"] ?><!--">-->
+                    <input name="writeComment" type="text" placeholder="Write you comment">
+
+                    <input type="submit" name="commentButton" value="✓">
+                    <div class="del"><input type="button" name="commentDeleteButton" value="x"></div>
+                </div>
+            </form>
+        <?php endif; ?>
+
+        <?php  //require __DIR__.'/comment.php'; ?>
     </div>
 
 

@@ -6,23 +6,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // When the button is being pushed
     if (isset($_POST["commentButton"])) {
 
-            // Check if the comment field is missing (requirement)
-            if (!isset($_POST["writeComment"]) || empty($_POST["writeComment"])) {
+        // Check if the comment field is missing (requirement)
+        if (!isset($_POST["writeComment"]) || empty($_POST["writeComment"])) {
 
-                // Output error message
-                $_SESSION["error"] = "Hey, don't try comment something blank.";
+            // Output error message
+            $_SESSION["error"] = "Hey, don't try comment something blank.";
 
-            } else {
+        } else {
 
-                $pid = $_POST["postId"];
-                $content = mysqli_real_escape_string($connection, $_POST["writeComment"]);
-                $uid = $_SESSION["login"]["uid"];
-                $date = date("Y-m-d H:i:s");
+            $pid = $_POST["postId"];
+            $content = mysqli_real_escape_string($connection, $_POST["writeComment"]);
+            $uid = $_SESSION["login"]["uid"];
+            $date = date("Y-m-d H:i:s");
 
 
-                print_r($pid);
+           //print_r($pid);
 
-                //dbPost($connection, "INSERT INTO comments (pid, uid, comment, published) VALUES ('$pid', '$uid', '$content', '$date')");
+            dbPost($connection, "INSERT INTO comments (pid, uid, comment, published) VALUES ('$pid', '$uid', '$content', '$date')");
 
 //            $pid = dbGet($connection, "SELECT id FROM posts");
 //            $uid = $_SESSION["login"]["uid"];
