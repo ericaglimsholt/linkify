@@ -4,6 +4,8 @@
     require __DIR__.'/blocks/head.php';
     require __DIR__.'/lib/newpost.php';
     require __DIR__.'/lib/newcomment.php';
+
+
 ?>
 
 <html>
@@ -21,12 +23,12 @@
     }
 
     // New query for getting all the posts from database
-    $posts = dbGet($connection, "SELECT * FROM posts ORDER BY published DESC");
+    //$posts = dbGet($connection, "SELECT * FROM posts, users WHERE posts.uid = users.id ORDER BY published DESC");
 
     // Shows all the posts
-    foreach ($posts as $post) {
+    //foreach ($posts as $post) {
         require __DIR__.'/blocks/new.php';
-    }
+    //}
 
     ?>
 

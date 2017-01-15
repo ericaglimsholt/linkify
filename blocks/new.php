@@ -1,18 +1,22 @@
 <?php
+require __DIR__.'/../lib/newcomment.php';
+
 if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
 }
 
-$users = dbGet($connection, "SELECT * FROM posts, users WHERE posts.uid = users.id ");
-foreach ($users as $user) {
+$postInfo = dbGet($connection, "SELECT * FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY published DESC;");
+$commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
 
-}
-
-$comments = dbGet($connection, "SELECT * FROM comments, posts WHERE comments.pid = posts.id");
-
-foreach ($comments as $comment) {
-
-}
+foreach($postInfo as $post) {
+$postDescription = $post["description"];
+$postLink = $post["link"];
+$postSubject = $post["subject"];
+$postPublished = $post["published"];
+$postUsername = $post["username"];
+$postAvatar = $post["avatar"];
+$uid = $post["uid"];
+$postid = $post["id"];
 
 ?>
 
@@ -24,25 +28,27 @@ foreach ($comments as $comment) {
     require("blocks/message.php");
 
     ?>
+
     <div class="post">
+
       <div class="rate">
         <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>
         <input class="qty" value="0" />
         <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
       </div>
 
-    <a target="_blank" href="<?= $user["link"]; ?>"> <h2><?= $post["subject"]; ?> </h2></a>
-    <p><?= $post["description"]; ?></p>
+    <a target="_blank" href="<?= $postLink; ?>"> <h2><?= $postSubject; ?> </h2></a>
+    <p><?= $postDescription; ?></p>
 
 
-        <h6>Author: <a href="../profile.php"><?= $user["username"]; ?></a> | Published: <?= $user["published"]; ?>
+        <h6>Author: <a href="../profile.php"><?= $postUsername ?></a> | Published: <?= $postPublished ?>
 
           <!-- Om användaren är inloggad -->
             <?php if (isset($_SESSION["login"]["uid"])): ?>
                 | <div class="commentBut"><a href="#">Comment</a></div>
 
                 <!-- Om användaren har skrivit länken så syns detta -->
-                 <?php if ($_SESSION["login"]["uid"] == $post["id"]): ?>
+                 <?php if ($_SESSION["login"]["uid"] == $postid): ?>
                     <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
                         <input type="submit" name="editPost" value="edit">
 <!--                        |<button class="editPost" name="editPost">Edit</button>-->
@@ -54,18 +60,26 @@ foreach ($comments as $comment) {
         </h6>
 
         <?php
-
-
-
-
-
+        foreach ($commentInfo as $comments) {
+        $commentUid = $comments["uid"];
+        $commentPid = $comments["pid"];
+        $commentAvatar = $comments["avatar"];
+        $commentDescription = $comments["comment"];
         ?>
+            <?php if ($postid == $commentPid ): ?>
         <hr>
         <div class="showComments">
 
+
             <img src="../img/erica.jpg" alt="Avatar">
-            <h7><a href="#"> <?= $comment["uid"]; ?></a> commented: <?= $comment["comment"]; ?> </h7>
+            <h7><a href="#"> <?= $commentUid; ?></a> commented: <?= $commentDescription; ?> </h7>
+
         </div>
+            <?php endif; ?>
+
+            <?php
+                }
+        ?>
 
         <?php if (isset($_SESSION["login"]["uid"])): ?>
 
@@ -75,7 +89,7 @@ foreach ($comments as $comment) {
 
                     <?php
 
-                    echo "<input name=\"postId\" type=\"hidden\" value=\"" . $post["id"] . "\">";
+                    echo "<input name=\"postId\" type=\"hidden\" value=\"" . $postid . "\">";
                     ?>
                     <!--          <input type="hidden" name="postId" value="--><?//= echo $post["id"] ?><!--">-->
                     <input name="writeComment" type="text" placeholder="Write you comment">
@@ -91,6 +105,12 @@ foreach ($comments as $comment) {
 
 
 </div>
+
+    <?php
+
+}
+
+?>
 
 <div class="container">
 
