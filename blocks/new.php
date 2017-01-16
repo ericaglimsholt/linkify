@@ -1,12 +1,12 @@
 <?php
 require __DIR__.'/../lib/newcomment.php';
+require __DIR__.'/../lib/editPost.php';
 
 if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
 }
 
-$postInfo = dbGet($connection, "SELECT * FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY published DESC;");
-$commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
+$postInfo = dbGet($connection, "SELECT *, posts.id FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY posts.published DESC;");
 
 foreach($postInfo as $post) {
 $postDescription = $post["description"];
@@ -36,7 +36,7 @@ $postid = $post["id"];
         <input class="qty" value="0" />
         <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
       </div>
-
+        <?php  print($postid); ?>
     <a target="_blank" href="<?= $postLink; ?>"> <h2><?= $postSubject; ?> </h2></a>
     <p><?= $postDescription; ?></p>
 
@@ -48,7 +48,7 @@ $postid = $post["id"];
                 | <div class="commentBut"><a href="#">Comment</a></div>
 
                 <!-- Om användaren har skrivit länken så syns detta -->
-                 <?php if ($_SESSION["login"]["uid"] == $postid): ?>
+                 <?php if ($_SESSION["login"]["uid"] == $uid): ?>
                     <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
                         <input type="submit" name="editPost" value="edit">
 <!--                        |<button class="editPost" name="editPost">Edit</button>-->
@@ -58,6 +58,10 @@ $postid = $post["id"];
         <div class="editDiv">
 
             <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
+
+
+
+                <input name="editPid" type="hidden" value="<?= $postid; ?>">
 
                 <h5>Edit subject:</h5>
                 <input name="editSubject" type="text" value="<?= $postSubject; ?>">
@@ -78,6 +82,10 @@ $postid = $post["id"];
         </h6>
 
         <?php
+
+
+        $commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
+
         foreach ($commentInfo as $comments) {
         $commentUid = $comments["uid"];
         $commentPid = $comments["pid"];
@@ -91,7 +99,7 @@ $postid = $post["id"];
 
 
             <img src="../img/erica.jpg" alt="Avatar">
-            <h7><a href="#"> <?= $commentUid; ?></a> commented: <?= $commentDescription; ?> </h7>
+            <h7><a href="#"> <?= $postUsername; ?></a> commented: <?= $commentDescription; ?> </h7>
 
         </div>
             <?php endif; ?>
@@ -128,6 +136,7 @@ $postid = $post["id"];
     <?php
 
 }
+
 
 ?>
 
