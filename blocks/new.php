@@ -94,6 +94,7 @@ $postid = $post["id"];
 
         foreach ($commentInfo as $comments) {
         $commentUid = $comments["uid"];
+        $commentUsername = $comments["username"];
         $commentPid = $comments["pid"];
         $commentAvatar = $comments["avatar"];
         $commentDescription = $comments["comment"];
@@ -105,7 +106,7 @@ $postid = $post["id"];
 
 
             <img src="../img/erica.jpg" alt="Avatar">
-            <h7><a href="#"> <?= $postUsername; ?></a> commented: <?= $commentDescription; ?> </h7>
+            <h7><a href="#"> <?= $commentUsername; ?></a> commented: <?= $commentDescription; ?> </h7>
 
         </div>
             <?php endif; ?>
