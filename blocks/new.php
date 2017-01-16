@@ -72,7 +72,7 @@ $postid = $post["id"];
                 <h5>Edit description:</h5>
                 <input name="editDescription" type="text" value="<?= $postDescription; ?>">
 
-                <input type="submit" name="submitEdit" value="Save">
+                <input type="submit" name="submitEdit" value="Save"><div class="del"><input type="button" name="commentDeleteButton" value="x"></div>
 
             </form>
         </div>

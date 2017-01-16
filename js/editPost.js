@@ -8,3 +8,11 @@ show.forEach(function(showed)
     });
 });
 
+const del = document.querySelectorAll('.del');
+del.forEach(function(hide)
+{
+    const parent = hide.parentElement.parentElement.parentElement;
+    hide.addEventListener("click", function(event){
+        parent.querySelector(".editDiv").style.display = "none";
+    });
+});
