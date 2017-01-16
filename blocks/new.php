@@ -66,6 +66,7 @@ $postid = $post["id"];
         $commentAvatar = $comments["avatar"];
         $commentDescription = $comments["comment"];
         ?>
+
             <?php if ($postid == $commentPid ): ?>
         <hr>
         <div class="showComments">
