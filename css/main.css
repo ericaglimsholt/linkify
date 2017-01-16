@@ -383,4 +383,5 @@ input[class=qty] {
 
 .editDiv {
   margin-left: 10px;
+  display: none;
 }

@@ -50,7 +50,7 @@ $postid = $post["id"];
                 <!-- Om användaren har skrivit länken så syns detta -->
                  <?php if ($_SESSION["login"]["uid"] == $uid): ?>
                     <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
-                        <input type="submit" name="editPost" value="edit">
+                        | <div class="editPost"><a href="#">Edit</a></div>
 <!--                        |<button class="editPost" name="editPost">Edit</button>-->
                         |<button class="deletePost"><div class="deleteBut"><a href="#">Delete</a></div></h6></button>
                     </form>
