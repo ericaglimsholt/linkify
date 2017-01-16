@@ -1,6 +1,13 @@
 <?php
-require __DIR__.'/../lib/newcomment.php';
-require __DIR__.'/../lib/editPost.php';
+if (isset($_POST["commentButton"])) {
+    require __DIR__.'/../lib/newcomment.php';
+}
+
+if (isset($_POST["submitEdit"])) {
+    require __DIR__.'/../lib/editPost.php';
+}
+
+
 
 if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
