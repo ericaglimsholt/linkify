@@ -54,6 +54,24 @@ $postid = $post["id"];
 <!--                        |<button class="editPost" name="editPost">Edit</button>-->
                         |<button class="deletePost"><div class="deleteBut"><a href="#">Delete</a></div></h6></button>
                     </form>
+        <hr>
+        <div class="editDiv">
+
+            <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
+
+                <h5>Edit subject:</h5>
+                <input name="editSubject" type="text" value="<?= $postSubject; ?>">
+
+                <h5>Edit link:</h5>
+                <input name="editLink" type="text" value="<?= $postLink; ?>">
+
+                <h5>Edit description:</h5>
+                <input name="editDescription" type="text" value="<?= $postDescription; ?>">
+
+                <input type="submit" name="submitEdit" value="Save">
+
+            </form>
+        </div>
 
                  <?php endif; ?>
             <?php endif; ?>
