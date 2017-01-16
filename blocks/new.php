@@ -36,7 +36,6 @@ $postid = $post["id"];
         <input class="qty" value="0" />
         <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
       </div>
-        <?php  print($postid); ?>
     <a target="_blank" href="<?= $postLink; ?>"> <h2><?= $postSubject; ?> </h2></a>
     <p><?= $postDescription; ?></p>
 
@@ -54,11 +53,11 @@ $postid = $post["id"];
 <!--                        |<button class="editPost" name="editPost">Edit</button>-->
                         |<button class="deletePost"><div class="deleteBut"><a href="#">Delete</a></div></h6></button>
                     </form>
-        <hr>
+
         <div class="editDiv">
 
             <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
-
+                <hr>
 
 
                 <input name="editPid" type="hidden" value="<?= $postid; ?>">

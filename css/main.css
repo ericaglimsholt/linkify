@@ -252,6 +252,10 @@ img.settingAvatar {
   margin-top: 4px;
 }
 
+.post h6 {
+  margin-left: 10px;
+}
+
 .newPost {
   margin-bottom: 80px;
 }
@@ -384,4 +388,8 @@ input[class=qty] {
 .editDiv {
   margin-left: 10px;
   display: none;
+}
+
+.editPost {
+  display: inline;
 }

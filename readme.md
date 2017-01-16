@@ -19,13 +19,13 @@ This is a school project called Linkify, which are our own version of a Reddit c
     - [x] Post links with description
     - [x] Include link to the authors profile page
 - [ ] Edit post
-    - [ ] Edit link and description
+    - [x] Edit link and description
     - [ ] Delete post
 - [ ] Voting system
     - [ ] Up & down vote
     - [ ] One vote/user
-- [ ] Comments
-    - [ ] Always showing next to the post
+- [x] Comments
+    - [x] Always showing next to the post
     - [x] Link to the author
     - [x] Show and hide comment field
 - [x] Feed
