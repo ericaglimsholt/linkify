@@ -1,18 +1,20 @@
 <?php
+// Check if comment button is being pushed
 if (isset($_POST["commentButton"])) {
     require __DIR__.'/../lib/newcomment.php';
 }
 
+// Check if the submit edit is being pushed
 if (isset($_POST["submitEdit"])) {
     require __DIR__.'/../lib/editPost.php';
 }
 
-
-
+// Error message for edit post
 if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
 }
 
+// Query for get post information
 $postInfo = dbGet($connection, "SELECT *, posts.id FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY posts.published DESC;");
 
 foreach($postInfo as $post) {
@@ -30,7 +32,7 @@ $postid = $post["id"];
 <div class="container">
 
     <?php
-
+    // Error and success message
     require("blocks/error.php");
     require("blocks/message.php");
 
@@ -39,13 +41,31 @@ $postid = $post["id"];
     <div class="post">
 
       <div class="rate">
-        <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>
-        <input class="qty" value="0" />
-        <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
+
+          <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
+
+              <input name="votePid" type="hidden" value="<?= $postid; ?>">
+
+              <button type="submit" name="upvote" value="Upvote">
+
+                 <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>
+
+              </button>
+
+                <input class="qty" value="0" />
+
+              <button type="submit" name="downvote" value="Downvote">
+
+                  <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
+
+              </button>
+
+          </form>
+
       </div>
+
     <a target="_blank" href="<?= $postLink; ?>"> <h2><?= $postSubject; ?> </h2></a>
     <p><?= $postDescription; ?></p>
-
 
         <h6>Author: <a href="../profile.php"><?= $postUsername ?></a> | Published: <?= $postPublished ?>
 
