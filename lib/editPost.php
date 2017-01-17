@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $description = mysqli_real_escape_string($connection, $_POST["editDescription"]);
     $link = mysqli_real_escape_string($connection, $_POST["editLink"]);
     $subject = mysqli_real_escape_string($connection, $_POST["editSubject"]);
-    $pid = mysqli_real_escape_string($connection, $_POST["editPid"]);
+    $pid = mysqli_real_escape_string($connection, $_POST["votePid"]);
 
     //print_r($pid);
 

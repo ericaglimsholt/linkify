@@ -9,6 +9,12 @@ if (isset($_POST["submitEdit"])) {
     require __DIR__.'/../lib/editPost.php';
 }
 
+// Check if the submit edit is being pushed
+if (isset($_POST["upvote"]) || isset($_POST["downvote"])) {
+    require __DIR__.'/../lib/votes.php';
+}
+
+
 // Error message for edit post
 if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
@@ -46,17 +52,17 @@ $postid = $post["id"];
 
               <input name="votePid" type="hidden" value="<?= $postid; ?>">
 
-              <button type="submit" name="upvote" value="Upvote">
+              <button type="submit" name="upvote" value="1">
 
-                 <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>
+<!--                 <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>-->
 
               </button>
 
                 <input class="qty" value="0" />
 
-              <button type="submit" name="downvote" value="Downvote">
+              <button type="submit" name="downvote" value="-1">
 
-                  <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>
+<!--                  <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>-->
 
               </button>
 
