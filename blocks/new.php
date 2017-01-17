@@ -52,7 +52,7 @@ $postid = $post["id"];
 
               <input name="votePid" type="hidden" value="<?= $postid; ?>">
 
-              <button type="submit" name="upvote" value="1">
+              <button type="submit" name="upvote" value="+1">
 
 <!--                 <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>-->
 
