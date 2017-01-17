@@ -20,6 +20,18 @@ if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
 }
 
+$votesInfo = dbGet($connection, "SELECT * FROM votes INNER JOIN posts ON posts.id = votes.pid");
+
+foreach ($votesInfo as $votes) {
+    $uid = $votes["uid"];
+    $pid = $votes["pid"];
+    $up = $votes["up"];
+    $down = $votes["down"];
+    $qty = $down + $up;
+}
+
+
+
 // Query for get post information
 $postInfo = dbGet($connection, "SELECT *, posts.id FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY posts.published DESC;");
 
@@ -42,6 +54,8 @@ $postid = $post["id"];
     require("blocks/error.php");
     require("blocks/message.php");
 
+
+
     ?>
 
     <div class="post">
@@ -52,19 +66,18 @@ $postid = $post["id"];
 
               <input name="votePid" type="hidden" value="<?= $postid; ?>">
 
-              <button type="submit" name="upvote" value="+1">
+              <input type="image" name="upvote" value="+1" src="/../img/upvote.png">
 
-<!--                 <a href="#" class="up" onclick="modify_qty(1)"><img src="/../img/upvote.png" alt=""></a>-->
+              </input>
 
-              </button>
+                <input class="qty" value="<?= $qty; ?>" />
 
-                <input class="qty" value="0" />
 
-              <button type="submit" name="downvote" value="-1">
+                  <input type="image" name="downvote" value="-1" src="/../img/downvote.png">
 
 <!--                  <a href="#" class="down" onclick="modify_qty(-1)"><img src="/../img/downvote.png" alt=""></a>-->
 
-              </button>
+
 
           </form>
 

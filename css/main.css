@@ -365,7 +365,7 @@ input[class=qty] {
   font-size: 12px;
   color: gainsboro;
   margin-bottom: 0px;
-  margin-top: -5px;
+  margin-top: 0px;
   margin-left: 6px;
   outline: none;
   border: none;
@@ -392,4 +392,9 @@ input[class=qty] {
 
 .editPost {
   display: inline;
+}
+
+input[name=upvote], input[name=downvote] {
+  margin-top: 0px;
+  width: 20px;
 }
