@@ -22,15 +22,13 @@ if (isset($_POST["editpost"])) {
 
 $votesInfo = dbGet($connection, "SELECT * FROM votes INNER JOIN posts ON posts.id = votes.pid");
 
-foreach ($votesInfo as $votes) {
-    $uid = $votes["uid"];
-    $pid = $votes["pid"];
-    $up = $votes["up"];
-    $down = $votes["down"];
-    $qty = $down + $up;
+foreach ($votesInfo as $vote) {
+    $uid = $vote["uid"];
+    $pid = $vote["pid"];
+    $up = $vote["up"];
+    $down = $vote["down"];
+    $qty = $up + $down;
 }
-
-
 
 // Query for get post information
 $postInfo = dbGet($connection, "SELECT *, posts.id FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY posts.published DESC;");
@@ -86,7 +84,7 @@ $postid = $post["id"];
     <a target="_blank" href="<?= $postLink; ?>"> <h2><?= $postSubject; ?> </h2></a>
     <p><?= $postDescription; ?></p>
 
-        <h6>Author: <a href="../profile.php"><?= $postUsername ?></a> | Published: <?= $postPublished ?>
+        <h6>Author: <a href="<?= $postAvatar ?>"><?= $postUsername ?></a> | Published: <?= $postPublished ?>
 
           <!-- Om användaren är inloggad -->
             <?php if (isset($_SESSION["login"]["uid"])): ?>
@@ -137,6 +135,7 @@ $postid = $post["id"];
         $commentPid = $comments["pid"];
         $commentAvatar = $comments["avatar"];
         $commentDescription = $comments["comment"];
+        $uid = $_SESSION["login"]["uid"];
         ?>
 
             <?php if ($postid == $commentPid ): ?>
@@ -144,7 +143,7 @@ $postid = $post["id"];
         <div class="showComments">
 
 
-            <img src="../img/erica.jpg" alt="Avatar">
+            <img src="../img/users/<?= $commentUid?>/<?= $commentAvatar ?>" alt="Avatar">
             <h7><a href="#"> <?= $commentUsername; ?></a> commented: <?= $commentDescription; ?> </h7>
 
         </div>
@@ -158,7 +157,7 @@ $postid = $post["id"];
 
             <form name="registerComment" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="comments">
-                    <img src="../img/erica.jpg" alt="Avatar">
+                    <img src="../img/users/<?= $uid ?>/<?= $postAvatar ?>" alt="Avatar">
 
                     <?php
 

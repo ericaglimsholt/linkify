@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         } else {
 
-            if (!dbPost($connection, "INSERT INTO votes (pid, uid, up, down) VALUES ('$pid', '$uid', '$up', '$down')")) {
+            if (!dbPost($connection, "INSERT INTO votes (pid, uid, up) VALUES ('$pid', '$uid', '$up')")) {
                 $_SESSION["error"] = "Something went wrong with the database request.";
                 return false;
             } else {
