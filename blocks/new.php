@@ -132,7 +132,7 @@ foreach($postInfo as $post) {
                 |
                 <!--<button class="deleteBut">-->
                 <input name="deletePid" type="hidden" value="<?= $postid; ?>">
-                    <button type="submit" name="deletePost" class="deleteBut"><a href="#">Delete</a></button></h6>
+                    <input type="submit" name="deletePost" class="deleteBut" value="Delete" /></h6>
             </form>
 
             <div class="editDiv">

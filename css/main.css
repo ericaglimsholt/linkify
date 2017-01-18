@@ -398,3 +398,15 @@ input[name=upvote], input[name=downvote] {
   margin-top: 0px;
   width: 20px;
 }
+
+input[name=deletePost]{
+  padding: 0;
+  border: none;
+  background: none;
+  outline:none;
+  color: gainsboro;
+}
+
+input[name=deletePost]:hover{
+  color: #B0C4DE;
+}
