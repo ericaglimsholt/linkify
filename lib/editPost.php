@@ -7,11 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $subject = mysqli_real_escape_string($connection, $_POST["editSubject"]);
     $pid = mysqli_real_escape_string($connection, $_POST["editPid"]);
 
-    //print_r($pid);
-
     if (isset($_POST["submitEdit"])) {
 
-
+        // Updates post subject
         if (!empty($_POST["editSubject"])) {
             if (!dbPost($connection, "UPDATE posts SET subject = '$subject' WHERE id = '$pid'")) {
                 $_SESSION["error"] = "Something went wrong with the database request.";
@@ -21,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
 
+        // Updates post link
         if (!empty($_POST["editLink"])) {
             if (!dbPost($connection, "UPDATE posts SET link = '$link' WHERE id = '$pid'")) {
                 $_SESSION["error"] = "Something went wrong with the database request.";
@@ -30,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
 
+        // Updates post description
         if (!empty($_POST["editDescription"])) {
             if (!dbPost($connection, "UPDATE posts SET description = '$description' WHERE id = '$pid'")) {
                 $_SESSION["error"] = "Something went wrong with the database request.";

@@ -14,30 +14,10 @@ if (isset($_POST["upvote"]) || isset($_POST["downvote"])) {
     require __DIR__.'/../lib/votes.php';
 }
 
-// Check if the submit edit is being pushed
+// Check if the detele button is being pushed
 if (isset($_POST["deletePid"])) {
     require __DIR__.'/../lib/delete.php';
 }
-
-
-
-
-// Error message for edit post
-/*
-if (isset($_POST["editpost"])) {
-    $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
-}
-*/
-//$votesInfo = dbGet($connection, "SELECT * FROM votes INNER JOIN posts ON posts.id = votes.pid");
-//
-//foreach ($votesInfo as $vote) {
-//    $uid = $vote["uid"];
-//    $pid = $vote["pid"];
-//    $up = $vote["up"];
-//    $down = $vote["down"];
-//    $qty = $up + $down;
-//
-//}
 
 // Query for get post information
 $postInfo = dbGet($connection, "SELECT *, posts.id FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY posts.published DESC;");
@@ -57,6 +37,7 @@ foreach($postInfo as $post) {
     <div class="container">
 
     <?php
+
     // Error and success message
     require("blocks/error.php");
     require("blocks/message.php");
@@ -70,36 +51,29 @@ foreach($postInfo as $post) {
 
         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
 
+            <!-- Hidden input with post id for the database later on -->
             <input name="votePid" type="hidden" value="<?= $postid; ?>">
 
+            <!-- Up button -->
             <input type="image" name="upvote" value="+1" src="/../img/upvote.png" />
 
             <?php
 
+            // Query for get information from database
             $votesInfo = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
+
             foreach ($votesInfo as $vote) {
                 $voteid = $vote["id"];
                 $vuid = $vote["uid"];
                 $pid = $vote["pid"];
                 $up = $vote["up"];
                 $down = $vote["down"];
-
-               /* $voteid = $votesInfo["id"];
-                $pid = $votesInfo["pid"];
-                $uid = $votesInfo["uid"];
-                $up = $votesInfo["up"];
-                $down = $votesInfo["down"]; */
-
+                // Math for the votes currant value
                 $qty = $up + $down;
 
-                //print_r($votesInfo);
-
-                /*if ($voteid != null) {
-                    $qty = $up + $down;
-                }
-*/
                 ?>
 
+                <!-- Shows the currant value for votes -->
                 <input class="qty" value="<?= $qty; ?>"/>
 
                 <?php
@@ -107,39 +81,42 @@ foreach($postInfo as $post) {
             }
             ?>
 
+            <!-- Down button -->
             <input type="image" name="downvote" value="-1" src="/../img/downvote.png">
 
         </form>
 
     </div>
 
-    <a target="_blank" href="<?= $postLink; ?>"><h2><?= $postSubject; ?> </h2></a>
+        <!-- All posts -->
+    <a target="_blank" href="<?= $postLink; ?>">
+        <h2><?= $postSubject; ?> </h2>
+    </a>
     <p><?= $postDescription; ?></p>
 
     <h6>Author: <a href="<?= $postAvatar ?>"><?= $postUsername ?></a> | Published: <?= $postPublished ?>
 
-    <!-- Om användaren är inloggad -->
+    <!-- If user are logged in -->
     <?php if (isset($_SESSION["login"]["uid"])): ?>
         |
         <div class="commentBut"><a href="#">Comment</a></div>
 
-        <!-- Om användaren har skrivit länken så syns detta -->
+        <!-- If user have written the post -->
         <?php if ($_SESSION["login"]["uid"] == $uid): ?>
             <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
                 |
                 <div class="editPost"><a href="#">Edit</a></div>
-                <!--                        |<button class="editPost" name="editPost">Edit</button>-->
                 |
-                <!--<button class="deleteBut">-->
                 <input name="deletePid" type="hidden" value="<?= $postid; ?>">
-                    <input type="submit" name="deletePost" class="deleteBut" value="Delete" /></h6>
+
+                <input type="submit" name="deletePost" class="deleteBut" value="Delete" /></h6>
             </form>
 
+            <!-- Edit post div -->
             <div class="editDiv">
 
                 <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
                     <hr>
-
 
                     <input name="editPid" type="hidden" value="<?= $postid; ?>">
 
@@ -162,10 +139,9 @@ foreach($postInfo as $post) {
     <?php endif; ?>
     </h6>
 
-
     <?php
 
-
+    // Query for get comment information
     $commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published ASC;");
 
     foreach ($commentInfo as $comments) {
@@ -178,9 +154,11 @@ foreach($postInfo as $post) {
         ?>
 
         <?php if ($postid == $commentPid): ?>
-            <hr>
-            <div class="showComments">
 
+            <hr>
+
+            <!-- All comments -->
+            <div class="showComments">
 
                 <img src="../img/users/<?= $commentUid ?>/<?= $commentAvatar ?>" alt="Avatar">
                 <h7><a href="#"> <?= $commentUsername; ?></a> commented: <?= $commentDescription; ?> </h7>
@@ -188,50 +166,34 @@ foreach($postInfo as $post) {
             </div>
         <?php endif; ?>
 
-        <?php
-    }
-
-        ?>
+        <?php } ?>
 
         <?php if (isset($_SESSION["login"]["uid"])): ?>
 
+            <!-- Write a new comment -->
             <form name="registerComment" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
                 <div class="comments">
+
+                    <!-- Users avatar -->
                     <img src="../img/users/<?= $uid ?>/<?= $postAvatar ?>" alt="Avatar">
 
-                    <?php
-
-                    //echo "<input name=\"postId\" type=\"hidden\" value=\"" . $postid . "\">";
-                    ?>
                     <input type="hidden" name="postId" value="<?= $postid ?>" />
                     <input name="writeComment" type="text" placeholder="Write you comment">
 
                     <input type="submit" name="commentButton" value="✓">
                     <div class="del"><input type="button" name="commentDeleteButton" value="x"></div>
+
                 </div>
             </form>
         <?php endif; ?>
 
-        <?php  //require __DIR__.'/comment.php'; ?>
     </div>
-
 
 </div>
 
-    <?php
-
-}
-
-
-?>
+    <?php } ?>
 
 <div class="container">
 
-
 </div>
-
-
-
-
-
-</script>

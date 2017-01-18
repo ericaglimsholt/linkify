@@ -7,7 +7,6 @@ $uid = $_SESSION["login"]["uid"];
 
 $information = dbGet($connection, "SELECT * FROM users, posts WHERE posts.uid = '$uid'");
 
-
 foreach ($information as $info) {
 
 }
@@ -27,9 +26,12 @@ require __DIR__.'/blocks/header.php';
 
 ?>
 
+<!-- Check if user are logged in -->
 <?php if (isset($_SESSION["login"]["uid"])): ?>
 
     <div class="container">
+
+        <!-- Shows users information -->
         <h1><?= $info["username"] ?>'s profile</h1>
         <div class="settingAvatar" value="">
             <?php if ($info["avatar"] !== NULL) {  ?>
@@ -49,9 +51,7 @@ require __DIR__.'/blocks/header.php';
             require("blocks/new2.php");
         ?>
 
-
     </div>
-
 
 <?php endif; ?>
 

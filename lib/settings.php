@@ -12,9 +12,7 @@ foreach ($posts as $post) {
 }
 
 
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
 
     $uid = $_SESSION["login"]["uid"];
     $email = mysqli_real_escape_string($connection, $_POST["settingEmail"]);
@@ -81,8 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         uploadImage($connection, $_FILES["avatar"], "avatar", $_SESSION["login"]["uid"]);
                     }
                 }
-
-
             }
         }
     }

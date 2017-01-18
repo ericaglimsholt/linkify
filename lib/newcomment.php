@@ -3,9 +3,6 @@
 // When the form is posted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // When the button is being pushed
-    //if (isset($_POST["commentButton"])) {
-
         if (!empty($_POST["commentButton"])) {
 
             $pid = $_POST["postId"];
@@ -13,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $uid = $_SESSION["login"]["uid"];
             $date = date("Y-m-d H:i:s");
 
+            // Create a new comment in database
             if (!dbPost($connection, "INSERT INTO comments (pid, uid, comment, published) VALUES ('$pid', '$uid', '$comments', '$date')")) {
                 $_SESSION["error"] = "Something went wrong with the database request.";
                 return false;
@@ -20,24 +18,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION["message"] = "Your comment has successfully been posted!";
             }
         }
-
-
-
-
-
-
-           //print_r($pid);
-
-           // dbPost($connection, "INSERT INTO comments (pid, uid, comment, published) VALUES ('$pid', '$uid', '$comment', '$date')");
-
-//            $pid = dbGet($connection, "SELECT id FROM posts");
-//            $uid = $_SESSION["login"]["uid"];
-//            $comment = $_POST["writeComment"];
-//            $date = date("Y-m-d H:i:s");
-//
-//            // Register the new comment to database
-//            dbPost($connection, "INSERT INTO comments (uid, pid, comment, published) VALUES ('$uid', '$pid', '$comment', '$date')");
-
-
-   // }
 }
