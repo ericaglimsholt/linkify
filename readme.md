@@ -3,6 +3,11 @@
 This is a school project called Linkify, which are our own version of a Reddit clone. The assignment have some required features but has to be written with only using PHP, Javascript, HTML, CSS and has to be use either MySQL, MariaDB or MongoDB.
    
 ## Getting started
+- Clone this repo to your computer.
+- Create a database and import the sql backup file.
+- Set up a local server for the repos root (e.g MAMP).
+- Everything is included.
+- Browse to you server address and get started!
 
 ## Features to be added
 - [x] Registration
@@ -18,12 +23,12 @@ This is a school project called Linkify, which are our own version of a Reddit c
 - [x] Post
     - [x] Post links with description
     - [x] Include link to the authors profile page
-- [ ] Edit post
+- [x] Edit post
     - [x] Edit link and description
-    - [ ] Delete post
-- [ ] Voting system
-    - [ ] Up & down vote
-    - [ ] One vote/user
+    - [x] Delete post
+- [x] Voting system
+    - [x] Up & down vote
+    - [x] One vote/user
 - [x] Comments
     - [x] Always showing next to the post
     - [x] Link to the author
@@ -33,9 +38,8 @@ This is a school project called Linkify, which are our own version of a Reddit c
     - [x] Comment & creating new post requires inlogged user
     - [x] Edit & delete require user confirmation for only their posts
 - [ ] Profile
-    - [x] Overview of all info
+    - [ ] Overview of all info
     - [ ] All of the users posts
-
 
 ## Licence
 MIT License
