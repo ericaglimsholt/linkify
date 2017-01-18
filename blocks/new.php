@@ -14,12 +14,20 @@ if (isset($_POST["upvote"]) || isset($_POST["downvote"])) {
     require __DIR__.'/../lib/votes.php';
 }
 
+// Check if the submit edit is being pushed
+if (isset($_POST["deletePid"])) {
+    require __DIR__.'/../lib/delete.php';
+}
+
+
+
 
 // Error message for edit post
+/*
 if (isset($_POST["editpost"])) {
     $_SESSION["error"] = "Missing fields in login form! Make sure to fill out all fields.";
 }
-
+*/
 //$votesInfo = dbGet($connection, "SELECT * FROM votes INNER JOIN posts ON posts.id = votes.pid");
 //
 //foreach ($votesInfo as $vote) {
@@ -71,7 +79,7 @@ foreach($postInfo as $post) {
             $votesInfo = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
             foreach ($votesInfo as $vote) {
                 $voteid = $vote["id"];
-                $uid = $vote["uid"];
+                $vuid = $vote["uid"];
                 $pid = $vote["pid"];
                 $up = $vote["up"];
                 $down = $vote["down"];
@@ -122,8 +130,9 @@ foreach($postInfo as $post) {
                 <div class="editPost"><a href="#">Edit</a></div>
                 <!--                        |<button class="editPost" name="editPost">Edit</button>-->
                 |
-                <button class="deletePost">
-                    <div class="deleteBut"><a href="#">Delete</a></div></h6></button>
+                <!--<button class="deleteBut">-->
+                <input name="deletePid" type="hidden" value="<?= $postid; ?>">
+                    <button type="submit" name="deletePost" class="deleteBut"><a href="#">Delete</a></button></h6>
             </form>
 
             <div class="editDiv">
@@ -157,7 +166,7 @@ foreach($postInfo as $post) {
     <?php
 
 
-    $commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published DESC;");
+    $commentInfo = dbGet($connection, "SELECT * FROM comments INNER JOIN users ON users.id = comments.uid ORDER BY published ASC;");
 
     foreach ($commentInfo as $comments) {
         $commentUid = $comments["uid"];
@@ -165,7 +174,7 @@ foreach($postInfo as $post) {
         $commentPid = $comments["pid"];
         $commentAvatar = $comments["avatar"];
         $commentDescription = $comments["comment"];
-        $uid = $_SESSION["login"]["uid"];
+
         ?>
 
         <?php if ($postid == $commentPid): ?>
@@ -192,9 +201,9 @@ foreach($postInfo as $post) {
 
                     <?php
 
-                    echo "<input name=\"postId\" type=\"hidden\" value=\"" . $postid . "\">";
+                    //echo "<input name=\"postId\" type=\"hidden\" value=\"" . $postid . "\">";
                     ?>
-                    <!--          <input type="hidden" name="postId" value="--><?//= echo $post["id"] ?><!--">-->
+                    <input type="hidden" name="postId" value="<?= $postid ?>" />
                     <input name="writeComment" type="text" placeholder="Write you comment">
 
                     <input type="submit" name="commentButton" value="✓">

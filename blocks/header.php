@@ -1,7 +1,7 @@
 <div class="header">
 
   <a href="home.php">
-    <img src="img/logo-linkify.png" alt="Linkify Logotype" />
+    <img src="img/logo-linkify.jpg" alt="Linkify Logotype" />
   </a>
 
 <!--    If the user are not logged in-->

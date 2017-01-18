@@ -27,13 +27,15 @@
 
     // Shows all the posts
     //foreach ($posts as $post) {
+
+    //$uid = $_SESSION["login"]["uid"];
         require __DIR__.'/blocks/new.php';
     //}
 
     ?>
 
     <script src="../js/comment.js"></script>
-    <script src="../js/delete.js"></script>
+<!--    <script src="../js/delete.js"></script>-->
     <script src="../js/vote.js"></script>
     <script src="../js/editPost.js"></script>
 <footer></footer>
