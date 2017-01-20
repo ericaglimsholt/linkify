@@ -28,7 +28,7 @@
 
         <div class="headerForm">
 
-          <a href="/../profile.php">
+          <a href="#">
             <input type="submit" name="profile" value="Profile">
           </a>
 

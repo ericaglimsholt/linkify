@@ -170,6 +170,8 @@ foreach($postInfo as $post) {
 
         <?php if (isset($_SESSION["login"]["uid"])): ?>
 
+
+
             <!-- Write a new comment -->
             <form name="registerComment" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
@@ -185,7 +187,9 @@ foreach($postInfo as $post) {
                     <div class="del"><input type="button" name="commentDeleteButton" value="x"></div>
 
                 </div>
+
             </form>
+
         <?php endif; ?>
 
     </div>
