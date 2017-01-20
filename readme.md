@@ -1,11 +1,13 @@
 #Linkify
 
 This is a school project called Linkify, which are our own version of a Reddit clone. The assignment have some required features but has to be written with only using PHP, Javascript, HTML, CSS and has to be use either MySQL, MariaDB or MongoDB.
+
+Please read the 'features to be added' to see what to expect of the site.
    
 ## Getting started
 - Clone this repo to your computer.
-- Create a database and import the sql backup file.
 - Set up a local server for the repos root (e.g MAMP).
+- Create a database and import the sql backup file (e.g phpmyadmin).
 - Everything is included.
 - Browse to you server address and get started!
 
