@@ -3,9 +3,6 @@
     require __DIR__.'/blocks/login.php';
     require __DIR__.'/blocks/head.php';
     require __DIR__.'/lib/newpost.php';
-    require __DIR__.'/lib/newcomment.php';
-
-
 ?>
 
 <html>
