@@ -1,8 +1,11 @@
 <?php
 
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // When up voting
+	if (isset($_SESSION["login"]["uid"])) {
+
+		// When up voting
     if (isset($_POST["upvote"])) {
 
         $up = mysqli_real_escape_string($connection, $_POST["upvote"]);
@@ -67,4 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
         }
     }
+
+	} else {
+		$_SESSION["error"] = "You need to be logged in to be able to vote.";
+	}
+
+
 }
