@@ -3,6 +3,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+	// Check if user are logged in
 	if (isset($_SESSION["login"]["uid"])) {
 
 		// When up voting
