@@ -1,5 +1,11 @@
 <?php
 
+// New query for getting all the posts from database
+$posts = dbGet($connection, "SELECT * FROM posts, comments WHERE posts.id = comments.pid");
+
+// Shows all the posts
+
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -13,30 +19,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $pid = mysqli_real_escape_string($connection, $_POST["votePid"]);
         $uid = $_SESSION["login"]["uid"];
 
+				$countVote = dbGet($connection, "SELECT * FROM votes WHERE votes.pid = '$pid' AND votes.uid = '$uid'", true);
+				$votes = $connection->query("SELECT * FROM votes WHERE uid = $uid");
         $result = $connection->query("SELECT * FROM votes WHERE pid = $pid");
-        $rowCount = $result->num_rows;
 
-        // Check if rows exists in database
-        if ($rowCount > 0) {
+				if (isset($countVote)) {
 
-            // Updates votes
-            if (!dbPost($connection, "UPDATE votes SET up = '$up' +1 WHERE pid = '$pid'")) {
-                $_SESSION["error"] = "Something went wrong with the database request.";
-                return false;
-            } else {
-                $_SESSION["message"] = "Your upvote update has successfully been updated!";
-            }
+					// Check if you already voted up
+					if ($countVote["up"] === '1') {
+						$_SESSION["error"] = "You can only vote once";
+						return false;
+					}
 
-        } else {
+				} else {
+					// Create a row to votes with value
+					if (!dbPost($connection, "INSERT INTO votes (pid, uid, up) VALUES ('$pid', '$uid', '$up')")) {
+							$_SESSION["error"] = "Something went wrong with the database request.";
+							return false;
+					} else {
+							$_SESSION["message"] = "Your upvote has successfully been updated!";
+					}
+				}
 
-            // Create a row to votes with value
-            if (!dbPost($connection, "INSERT INTO votes (pid, uid, up) VALUES ('$pid', '$uid', '$up')")) {
-                $_SESSION["error"] = "Something went wrong with the database request.";
-                return false;
-            } else {
-                $_SESSION["message"] = "Your upvote has successfully been updated!";
-            }
-        }
+
     }
 
     // When down voting
