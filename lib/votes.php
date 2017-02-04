@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 				$_SESSION["error"] = "You can only vote once";
 				return false;
 			}
+
 		} else {
 
 			// When up voting
@@ -61,8 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			}
 
 		}
-
-  //  }
 
 	} else {
 		$_SESSION["error"] = "You need to be logged in to be able to vote.";

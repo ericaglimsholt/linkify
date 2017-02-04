@@ -8,17 +8,23 @@
 
         <input name="votePid" type="hidden" value="<?= $postid; ?>">
 
-        <input type="image" name="upvote" value="+1" src="/../img/upvote.png" />
+        <input type="image" name="upvote" value="+1" src="/../img/hej.png" />
         <?php
 
         $votesInfo = dbGet($connection, "SELECT * FROM votes INNER JOIN posts ON posts.id = votes.pid");
+
+				//$votes = dbGet($connection, "SELECT * FROM votes")
 
         foreach ($votesInfo as $vote) {
             $uid = $vote["uid"];
             $pid = $vote["pid"];
             $up = $vote["up"];
             $down = $vote["down"];
-            $qty = $up + $down;
+            //$qty = $up + $down;
+						//$qty = $up - (-1 * $down);
+
+						//$qty = intval($up) + intval($down);
+						$qty = intval($up + $down);
 
             ?>
 

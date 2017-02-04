@@ -68,8 +68,13 @@ foreach($postInfo as $post) {
                 $pid = $vote["pid"];
                 $up = $vote["up"];
                 $down = $vote["down"];
+
                 // Math for the votes currant value
                 $qty = $up + $down;
+								//$qty = $up - (-1 * $down);
+								//$qty = intval($up) + intval($down);
+								//$qty = intval($up + $down);
+							}
 
                 ?>
 
@@ -78,7 +83,7 @@ foreach($postInfo as $post) {
 
                 <?php
 
-            }
+
             ?>
 
             <!-- Down button -->
