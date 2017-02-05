@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		$result = $connection->query("SELECT * FROM votes WHERE pid = $pid");
 
 		// Check if the user already voted on post
-		if ($countVote["up"] === '1' || $countVote["down"] === '-1') {
+		if ($countVote["up"] === '1' || $countVote["up"] === '0') {
 			$_SESSION["error"] = "You can only vote once";
 			return false;
 
