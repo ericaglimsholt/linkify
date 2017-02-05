@@ -361,6 +361,10 @@ input[name=commentButton]:hover, input[name=commentDeleteButton]:hover {
   opacity: 0.5;
 }
 
+.rate p {
+	padding-left: 5px;
+}
+
 input[class=qty] {
   font-size: 12px;
   color: gainsboro;
