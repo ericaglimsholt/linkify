@@ -8,7 +8,7 @@
 
         <input name="votePid" type="hidden" value="<?= $postid; ?>">
 
-        <input type="image" name="upvote" value="+1" src="/../img/hej.png" />
+        <input type="image" name="upvote" value="" src="/../img/hej.png" />
         <?php
 
         $votesInfo = dbGet($connection, "SELECT * FROM votes INNER JOIN posts ON posts.id = votes.pid");
@@ -33,7 +33,7 @@
         }
         ?>
 
-        <input type="image" name="downvote" value="-1" src="/../img/downvote.png">
+        <input type="image" name="downvote" value="" src="/../img/downvote.png">
 
 
     </form>

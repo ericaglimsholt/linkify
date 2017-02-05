@@ -19,6 +19,8 @@ if (isset($_POST["deletePid"])) {
     require __DIR__.'/../lib/delete.php';
 }
 
+$loggedIn = isset($_SESSION["login"]["uid"]);
+
 // Query for get post information
 $postInfo = dbGet($connection, "SELECT *, posts.id FROM posts INNER JOIN users ON users.id = posts.uid ORDER BY posts.published DESC;");
 
@@ -42,61 +44,62 @@ foreach($postInfo as $post) {
     require("blocks/error.php");
     require("blocks/message.php");
 
+	if(!function_exists('getVotes')) {
+
+		function getVotes($connection, $postid){
+
+			$votes = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
+			$counter = 0;
+
+			foreach ($votes as $vote ) {
+				if ($vote["up"] == true) {
+					$counter += 1;
+				} else {
+					$counter -= 1;
+				}
+
+			}
+echo $counter;
+	}
+
+
+
+}
+
+
 
     ?>
 
     <div class="post">
 
-    <div class="rate">
+	    <div class="rate">
 
-        <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
+				<form action="<?= $_SERVER['PHP_SELF']; ?>" method="post" enctype=multipart/form-data>
 
-            <!-- Hidden input with post id for the database later on -->
-            <input name="votePid" type="hidden" value="<?= $postid; ?>">
+					 <!-- Hidden input with post id for the database later on -->
+					 <input name="votePid" type="hidden" value="<?= $postid; ?>">
 
-            <!-- Up button -->
-            <input type="image" name="upvote" value="+1" src="/../img/upvote.png" />
+					 <!-- Up button -->
+					 <input type="image" name="upvote" value="+1" src="/../img/upvote.png" />
 
-            <?php
+							 <!-- Shows the currant value for votes -->
+							 <p><?php getVotes($connection, $postid) ?></p>
 
-            // Query for get information from database
-            $votesInfo = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
+					 <!-- Down button -->
+					 <input type="image" name="downvote" value="-1" src="/../img/downvote.png">
 
-            foreach ($votesInfo as $vote) {
-                $voteid = $vote["id"];
-                $vuid = $vote["uid"];
-                $pid = $vote["pid"];
-                $up = $vote["up"];
-                $down = $vote["down"];
-
-                // Math for the votes currant value
-                $qty = $up + $down;
-								//$qty = $up - (-1 * $down);
-								//$qty = intval($up) + intval($down);
-								//$qty = intval($up + $down);
-							}
-
-                ?>
-
-                <!-- Shows the currant value for votes -->
-                <input class="qty" value="<?= $qty; ?>"/>
-
-                <?php
+			 </form>
 
 
-            ?>
+	    </div>
 
-            <!-- Down button -->
-            <input type="image" name="downvote" value="-1" src="/../img/downvote.png">
 
-        </form>
 
-    </div>
-
-        <!-- All posts -->
+    <!-- All posts -->
     <a target="_blank" href="<?= $postLink; ?>">
-        <h2><?= $postSubject; ?> </h2>
+      <h2><?= $postSubject; ?></h2>
     </a>
+
     <p><?= $postDescription; ?></p>
 
     <h6>Author: <a href="<?= $postAvatar ?>"><?= $postUsername ?></a> | Published: <?= $postPublished ?>
@@ -158,6 +161,7 @@ foreach($postInfo as $post) {
 
         ?>
 
+
         <?php if ($postid == $commentPid): ?>
 
             <hr>
@@ -201,8 +205,11 @@ foreach($postInfo as $post) {
 
 </div>
 
+
     <?php } ?>
 
 <div class="container">
+
+
 
 </div>

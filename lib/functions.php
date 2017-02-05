@@ -120,3 +120,146 @@ function uploadImage ($connection, $imageInfo, $type, $uid)
         }
     }
 }
+
+// function votePosts($connection, $loggedIn)
+// {
+// 	if (isset($_GET["vote"])) {
+// 		if ($_GET["vote"] === "up") {
+// 			if ($loggedIn) {
+// 				$voterId = $_SESSION["login"]["uid"];
+// 				$votePostId = $_GET["id"];
+// 				dbPost($connection, "INSERT INTO up (pid, uid) VALUES ('$votePostId', '$voterId')");
+// 			}
+// 		} else if ($_GET["vote"] === "down") {
+// 			if ($loggedIn) {
+// 				$voterId = $_SESSION["login"]["uid"];
+// 				$votePostId = $_GET["id"];
+// 				dbPost($connection, "INSERT INTO down (pid, uid) VALUES ('$votePostId', '$voterId')");
+// 			}
+// 		}
+// 	}
+// }
+
+// function countVotes($connection, $postid)
+// {
+// 	$votesInfo = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
+//
+// 	foreach ($votesInfo as $vote) {
+// 	    $voteid = $vote["id"];
+// 	    $vuid = $vote["uid"];
+// 	    $pid = $vote["pid"];
+// 	    $up = $vote["up"];
+// 	    $down = $vote["down"];
+// }
+//
+// 	$nrOfVotes = $up - $down;
+// 	return $nrOfVotes;
+
+
+	//
+	// $upvotes = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
+	// foreach($upvotes as $upvote) {
+	// 	$nrOfUpvotes = $upvote["up"];
+	// }
+	// $downvotes = dbGet($connection, "SELECT * FROM votes WHERE pid= '$postid'");
+	// foreach($downvotes as $downvote) {
+	// 	$nrOfDownvotes = $downvote["down"];
+	// }
+
+
+
+	// Query for get information from database
+	// $votesInfo = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
+	// foreach ($votesInfo as $vote) {
+	//     $voteid = $vote["id"];
+	//     $vuid = $vote["uid"];
+	//     $pid = $vote["pid"];
+	//     $up = $vote["up"];
+	//     $down = $vote["down"];
+	//     // Math for the votes currant value
+	//     $qty = $up + $down;
+	// 		//$qty = $up - (-1 * $down);
+	// 		//$qty = intval($up) + intval($down);
+	// 		//$qty = intval($up + $down);
+	// 	}
+//}
+
+// //Counts the upvotes from one table and downvotes from another to get the proper reslut for each post.
+// function countVotes($connection, $postid)
+// {
+//   //$countVotes = dbGet($connection, "SELECT COUNT(pid) FROM up, down WHERE pid = '$postid'");
+// 	$countVotes = dbGet($connection, "SELECT * FROM votes WHERE pid = '$postid'");
+//
+// 	foreach($countVotes as $votes) {
+// 		$nrOfUpvotes = $votes["up"];
+// 		$nrOfDownvotes = $votes["down"];
+// 		$nrOfVotes = $nrOfUpvotes += $nrOfDownvotes;
+//
+// 		echo $nrOfVotes;
+// 	}
+//
+// }'
+
+
+
+
+// 	function votePosts($connection, $loggedIn)
+// 	{
+// 		if (isset($_GET["vote"])) {
+//
+// 			if ($_GET["vote"] === "up") {
+// 				if ($loggedIn) {
+// 					$voterId = $_SESSION["login"]["uid"];
+// 					$votePostId = $_GET["id"];
+// 					dbPost($connection, "INSERT INTO upvote (post_id, user_id) VALUES ('$votePostId', '$voterId')");
+// 				} else {
+// 					$_SESSION["error"] = "Something went wrong with the database request.";
+// 				}
+//
+// 			} else if ($_GET["vote"] === "down") {
+// 				if ($loggedIn) {
+// 					$voterId = $_SESSION["login"]["uid"];
+// 					$votePostId = $_GET["id"];
+// 					dbPost($connection, "INSERT INTO downvote (post_id, user_id) VALUES ('$votePostId', '$voterId')");
+// 				} else {
+// 					$_SESSION["error"] = "Something went wrong with the database request.";
+// 				}
+// 			}
+// 		}
+// 	}
+//
+//
+//
+// //Counts the upvotes from one table and downvotes from another to get the proper reslut for each post.
+// function countVotes($connection, $postid)
+// {
+//    $upvotes = dbGet($connection, "SELECT COUNT(pid) FROM up WHERE pid = '$postid'");
+// 	foreach($upvotes as $upvote) {
+// 		$nrOfUpvotes = $upvote["COUNT(post_id)"];
+// 	}
+// 	$downvotes = dbGet($connection, "SELECT COUNT(pid) FROM down WHERE pid = '$postid'");
+// 	foreach($downvotes as $downvote) {
+// 		$nrOfDownvotes = $downvote["COUNT(post_id)"];
+// 	}
+// 	$nrOfVotes = $nrOfUpvotes - $nrOfDownvotes;
+// 	echo $nrOfVotes;
+// }
+
+// function upvote($connection)
+// {
+//   if (isset($_POST['upvote'])) {
+//     $pid = $_POST['pid'];
+//     $uid = $_POST['uid'];
+//     $updatePoints = "INSERT INTO votes (pid, uid, up) VALUES ($lid, '$uid', true)";
+//     $updateResult = mysqli_query($connection, $updatePoints);
+//   }
+// }
+// function downvote($connection)
+// {
+//   if (isset($_POST['downvote'])) {
+//     $lid = $_POST['pid'];
+//     $uid = $_POST['uid'];
+//     $updatePoints = "INSERT INTO votes (pid, uid, up) VALUES ($lid, '$uid', false)";
+//     $updateResult = mysqli_query($connection, $updatePoints);
+//   }
+// }
