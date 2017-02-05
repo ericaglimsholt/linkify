@@ -44,6 +44,7 @@ foreach($postInfo as $post) {
     require("blocks/error.php");
     require("blocks/message.php");
 
+	// Outputs the votes
 	if(!function_exists('getVotes')) {
 
 		function getVotes($connection, $postid){
@@ -57,18 +58,11 @@ foreach($postInfo as $post) {
 				} else {
 					$counter -= 1;
 				}
-
 			}
-echo $counter;
+			echo $counter;
+		}
 	}
-
-
-
-}
-
-
-
-    ?>
+?>
 
     <div class="post">
 
